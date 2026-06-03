@@ -1,7 +1,9 @@
 """MOBARec-GCNFP v2: Enhanced GCN with full API data integration."""
+import json
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from pathlib import Path
 
 
 class GraphConvolution(nn.Module):
@@ -161,7 +163,8 @@ class MOBARecGCN(nn.Module):
         available_heroes: list,
         hero_name_to_id: dict,
         hero_features: torch.Tensor = None,
-        top_k: int = 5
+        top_k: int = 5,
+        counter_data: dict = None
     ) -> list:
         """Get top-k hero recommendations.
         
@@ -171,6 +174,7 @@ class MOBARecGCN(nn.Module):
             hero_name_to_id: Mapping from hero name to model index
             hero_features: Optional hero features tensor
             top_k: Number of recommendations
+            counter_data: Optional counter data from hero_counters_openmlbb.json
             
         Returns:
             List of (hero_name, win_rate) tuples
@@ -183,9 +187,30 @@ class MOBARecGCN(nn.Module):
         if self._adj_matrix is None:
             raise ValueError("Adjacency matrix not set. Call set_adjacency_matrix() first.")
         
+        # Load counter data if not provided
+        if counter_data is None:
+            counter_path = Path(__file__).parent.parent.parent / "training" / "data" / "api_data" / "hero_counters_openmlbb.json"
+            if counter_path.exists():
+                with open(counter_path) as f:
+                    counter_data = json.load(f)
+            else:
+                counter_data = {}
+        
+        # Build enemy counter boost map: hero_name -> boost_score
+        enemy_counter_boost = {}
+        enemy_names = current_draft.get("enemy_picks", [])
+        for enemy in enemy_names:
+            if enemy in counter_data:
+                for counter in counter_data[enemy].get("counters", []):
+                    counter_name = counter.get("name", "")
+                    win_rate = counter.get("win_rate", 0.5)
+                    # Boost = how much better this counter is vs average (0.5)
+                    boost = max(0, win_rate - 0.5) * 2  # Scale to [0, 1]
+                    if counter_name not in enemy_counter_boost or boost > enemy_counter_boost[counter_name]:
+                        enemy_counter_boost[counter_name] = boost
+        
         # Convert hero names to IDs (handle both 'ally_picks' and 'friendly_picks' keys)
         friendly_names = current_draft.get("ally_picks", current_draft.get("friendly_picks", []))
-        enemy_names = current_draft.get("enemy_picks", [])
         
         friendly_ids = []
         for name in friendly_names:
@@ -224,8 +249,14 @@ class MOBARecGCN(nn.Module):
             
             with torch.no_grad():
                 pred = self.forward(test_friendly, enemy_tensor, hero_features)
-                scores.append((hero_name, pred.item()))
+                base_score = pred.item()
+            
+            # Apply counter boost (max +15% to GCN score)
+            counter_boost = enemy_counter_boost.get(hero_name, 0)
+            boosted_score = min(base_score + counter_boost * 0.15, 1.0)
+            
+            scores.append((hero_name, boosted_score))
         
-        # Sort by predicted win rate
+        # Sort by boosted win rate
         scores.sort(key=lambda x: x[1], reverse=True)
         return scores[:top_k]

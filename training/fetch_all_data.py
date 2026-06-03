@@ -4,10 +4,12 @@ import json
 import os
 import urllib.request
 import time
+import subprocess
 from datetime import datetime
 from pathlib import Path
 
 DATA_DIR = Path(__file__).parent / "data" / "api_data"
+TOURNAMENT_DATA_DIR = Path(__file__).parent / "data"
 os.makedirs(DATA_DIR, exist_ok=True)
 
 
@@ -171,7 +173,35 @@ def main():
         status = "OK" if ok else "FAILED"
         print(f"  {name}: {status}")
     
+    # Liquipedia tournament data
+    print("\n" + "=" * 60)
+    print("LIQUIPEDIA TOURNAMENT DATA")
+    print("=" * 60)
+    
+    liquipedia_csv = Path("/tmp/MLBB_Tournament_Analysis/scraping/tournament_game_info/output/consolidated_game_data_20240505.csv")
+    if liquipedia_csv.exists():
+        print(f"Found Liquipedia data at {liquipedia_csv}")
+        print("Converting to our format...")
+        try:
+            result = subprocess.run(
+                ["python3", str(Path(__file__).parent / "convert_liquipedia_data.py")],
+                capture_output=True,
+                text=True,
+                timeout=120
+            )
+            if result.returncode == 0:
+                print("Liquipedia data converted successfully")
+                print(result.stdout[-500:] if len(result.stdout) > 500 else result.stdout)
+            else:
+                print(f"Error: {result.stderr}")
+        except Exception as e:
+            print(f"Error running converter: {e}")
+    else:
+        print("Liquipedia data not found. Run:")
+        print("  cd /tmp && git clone --depth 1 https://github.com/LiTianYeoh/MLBB_Tournament_Analysis.git")
+    
     print(f"\nAll data saved to: {DATA_DIR}")
+    print(f"Tournament drafts saved to: {TOURNAMENT_DATA_DIR / 'tournament_drafts.json'}")
     print(f"Files are MERGED - existing data preserved, new data added/updated.")
 
 

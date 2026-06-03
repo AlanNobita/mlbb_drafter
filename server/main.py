@@ -145,7 +145,7 @@ class MLdrafterServer:
                 )
                 
                 if available:
-                    # Get GCN recommendations
+                    # Get GCN recommendations (with counter boost)
                     recs = self.gcn_model.recommend(
                         self.draft_state.to_dict(),
                         [h["name"] for h in available],
@@ -158,6 +158,18 @@ class MLdrafterServer:
                         {"hero": hero, "win_rate": wr}
                         for hero, wr in recs
                     ]
+                    
+                    # Build counter picks from API counter data
+                    counter_picks = self._get_counter_picks(
+                        self.draft_state.enemy_picks, available
+                    )
+                    recommendations["counter_picks"] = counter_picks
+                    
+                    # Build synergy picks from adjacency matrix
+                    synergy_picks = self._get_synergy_picks(
+                        self.draft_state.ally_picks, available
+                    )
+                    recommendations["synergy_picks"] = synergy_picks
             
             # Prepare message for dashboard
             message = {
@@ -214,6 +226,61 @@ class MLdrafterServer:
         """Stop the server."""
         self.running = False
         self.ws_server.stop()
+    
+    def _load_counter_data(self):
+        """Load counter data from API."""
+        counter_path = Path(__file__).parent.parent / "training" / "data" / "api_data" / "hero_counters_openmlbb.json"
+        if counter_path.exists():
+            with open(counter_path) as f:
+                return json.load(f)
+        return {}
+    
+    def _get_counter_picks(self, enemy_picks: list, available: list) -> list:
+        """Get counter pick recommendations based on enemy team."""
+        counter_data = self._load_counter_data()
+        available_names = {h["name"] for h in available}
+        
+        # Collect counters for all enemy heroes
+        counter_scores = {}
+        for enemy in enemy_picks:
+            if enemy in counter_data:
+                for counter in counter_data[enemy].get("counters", []):
+                    name = counter.get("name", "")
+                    wr = counter.get("win_rate", 0.5)
+                    if name in available_names and name not in counter_scores:
+                        counter_scores[name] = wr
+        
+        # Sort by win rate and return top 3
+        sorted_counters = sorted(counter_scores.items(), key=lambda x: x[1], reverse=True)
+        return [
+            {"hero": name, "win_rate": wr, "counters": enemy_picks[0] if enemy_picks else ""}
+            for name, wr in sorted_counters[:3]
+        ]
+    
+    def _get_synergy_picks(self, ally_picks: list, available: list) -> list:
+        """Get synergy pick recommendations based on ally team."""
+        available_names = {h["name"] for h in available}
+        
+        # Use hero_to_id and adjacency matrix for synergy
+        synergy_scores = {}
+        for ally in ally_picks:
+            if ally in self.hero_name_to_id:
+                ally_id = self.hero_name_to_id[ally]
+                # Check adjacency matrix for strong relationships
+                if hasattr(self.gcn_model, '_adj_matrix') and self.gcn_model._adj_matrix is not None:
+                    adj = self.gcn_model._adj_matrix
+                    for name, hid in self.hero_name_to_id.items():
+                        if name in available_names and name not in synergy_scores:
+                            score = adj[ally_id, hid].item() if hid < adj.shape[0] else 0
+                            if score > 0:
+                                synergy_scores[name] = score
+        
+        # Sort by synergy score and return top 3
+        sorted_synergies = sorted(synergy_scores.items(), key=lambda x: x[1], reverse=True)
+        return [
+            {"hero": name, "synergy_score": score}
+            for name, score in sorted_synergies[:3]
+        ]
 
 
 def main():

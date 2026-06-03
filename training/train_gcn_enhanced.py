@@ -46,7 +46,13 @@ def load_hero_mapping() -> Dict[str, int]:
 
 
 def normalize_case(name: str) -> str:
-    """Normalize hero name casing for consistent matching."""
+    """Normalize hero name casing for consistent matching.
+    
+    Handles case mismatches between data sources:
+    - hero_winrate.json has "Yi Sun-shin" (lowercase s)
+    - tournament_drafts.json has "Yi Sun-Shin" (uppercase S)
+    - adjacency_real.json has "Yi Sun-shin" (lowercase s)
+    """
     normalizations = {
         "Yi Sun-shin": "Yi Sun-Shin",
         "X.Borg": "X.Borg",
@@ -55,13 +61,32 @@ def normalize_case(name: str) -> str:
     return normalizations.get(name, name)
 
 
+def build_hero_lookup(hero_to_id: Dict[str, int]) -> Dict[str, int]:
+    """Build a case-insensitive hero lookup that normalizes all names.
+    
+    This ensures that "Yi Sun-shin" (from hero_winrate.json) and 
+    "Yi Sun-Shin" (from tournament_drafts.json) both resolve to the same ID.
+    
+    Returns a dict with exactly len(hero_to_id) unique IDs (no duplicates).
+    """
+    lookup = {}
+    for name, idx in hero_to_id.items():
+        normalized = normalize_case(name)
+        # Always use the normalized form as the canonical key
+        lookup[normalized] = idx
+        # Keep original name as alias (overwrites if normalized already set same ID)
+        if name != normalized:
+            lookup[name] = idx
+    return lookup
+
+
 def load_hero_features() -> Tuple[torch.Tensor, Dict[str, int]]:
     """Load hero features from temporal stats and API data."""
     hero_to_id = load_hero_mapping()
     num_heros = len(hero_to_id)
     
-    # Normalize hero names in mapping
-    hero_to_id_normalized = {normalize_case(name): idx for name, idx in hero_to_id.items()}
+    # Build normalized lookup (handles case mismatches across data sources)
+    hero_lookup = build_hero_lookup(hero_to_id)
     
     # Load temporal stats
     temporal_stats = {}
@@ -98,10 +123,17 @@ def load_hero_features() -> Tuple[torch.Tensor, Dict[str, int]]:
     # Track missing heroes
     missing_heroes = []
     
-    for name, idx in hero_to_id_normalized.items():
-        temporal = temporal_stats.get(name, {})
-        api = api_winrate.get(name, {})
-        cooccur = cooccurrence.get(name, {})
+    for name, idx in hero_lookup.items():
+        # Skip duplicate entries from build_hero_lookup
+        if idx >= num_heros:
+            continue
+        
+        # Normalize name for consistent lookup across data sources
+        normalized = normalize_case(name)
+        
+        temporal = temporal_stats.get(normalized, {}) or temporal_stats.get(name, {})
+        api = api_winrate.get(normalized, {}) or api_winrate.get(name, {})
+        cooccur = cooccurrence.get(normalized, {}) or cooccurrence.get(name, {})
         
         if not api:
             missing_heroes.append(name)
@@ -135,10 +167,10 @@ def load_hero_features() -> Tuple[torch.Tensor, Dict[str, int]]:
         if col_max > col_min:
             features[:, i] = (col - col_min) / (col_max - col_min)
     
-    return features, hero_to_id
+    return features, hero_lookup
 
 
-def load_adjacency_matrix(hero_to_id: Dict[str, int]) -> torch.Tensor:
+def load_adjacency_matrix(hero_lookup: Dict[str, int]) -> torch.Tensor:
     """Load and combine adjacency matrix with synergy matrix.
     
     Combines:
@@ -152,15 +184,17 @@ def load_adjacency_matrix(hero_to_id: Dict[str, int]) -> torch.Tensor:
     hero_names = adj_data["hero_names"]
     adj_list = adj_data["adjacency"]
     
-    num_heros = len(hero_to_id)
+    num_heros = len(set(hero_lookup.values()))  # Unique IDs only (lookup may have aliases)
     adj = torch.zeros(num_heros, num_heros)
     
-    # Map from API hero names to our IDs
+    # Map from API hero names to our IDs (using normalized lookup)
     api_name_to_our_id = {}
     for i, name in enumerate(hero_names):
         normalized = normalize_case(name)
-        if normalized in hero_to_id:
-            api_name_to_our_id[i] = hero_to_id[normalized]
+        if normalized in hero_lookup:
+            api_name_to_our_id[i] = hero_lookup[normalized]
+        elif name in hero_lookup:
+            api_name_to_our_id[i] = hero_lookup[name]
     
     # Fill adjacency matrix from base relationships
     for i, row in enumerate(adj_list):
@@ -178,12 +212,14 @@ def load_adjacency_matrix(hero_to_id: Dict[str, int]) -> torch.Tensor:
     synergy_heroes = synergy_data["hero_names"]
     synergy_matrix = synergy_data["synergy_matrix"]
     
-    # Map synergy hero names to our IDs
+    # Map synergy hero names to our IDs (using normalized lookup)
     synergy_name_to_our_id = {}
     for i, name in enumerate(synergy_heroes):
         normalized = normalize_case(name)
-        if normalized in hero_to_id:
-            synergy_name_to_our_id[i] = hero_to_id[normalized]
+        if normalized in hero_lookup:
+            synergy_name_to_our_id[i] = hero_lookup[normalized]
+        elif name in hero_lookup:
+            synergy_name_to_our_id[i] = hero_lookup[name]
     
     # Add synergy scores to adjacency (blend 70% base + 30% synergy)
     for i, row in enumerate(synergy_matrix):
@@ -214,35 +250,99 @@ def load_adjacency_matrix(hero_to_id: Dict[str, int]) -> torch.Tensor:
     return adj
 
 
-def load_tournament_drafts(hero_to_id: Dict[str, int]) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-    """Load tournament drafts and convert to tensors."""
+def load_tournament_drafts(
+    hero_lookup: Dict[str, int],
+    min_year: int = 2017,
+    temporal_decay: float = 0.1
+) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+    """Load tournament drafts with temporal weighting.
+    
+    Args:
+        hero_lookup: Normalized hero name to ID mapping
+        min_year: Minimum year to include (filters old drafts)
+        temporal_decay: How much to weight recent vs old (0=equal, 1=only recent)
+    
+    Returns:
+        friendly: Friendly team picks [n, 5]
+        enemy: Enemy team picks [n, 5]
+        win_rates: Win rates [n]
+        sample_weights: Temporal weights [n] (newer = higher)
+    """
     with open(DATA_DIR / "tournament_drafts.json") as f:
         drafts = json.load(f)
     
-    num_heros = len(hero_to_id)
+    # Find the latest date for normalization
+    all_dates = []
+    for draft in drafts:
+        date_str = draft.get("date", "20230101")
+        try:
+            year = int(date_str[:4])
+            all_dates.append(year)
+        except:
+            all_dates.append(2023)
+    
+    max_year = max(all_dates) if all_dates else 2023
+    
     friendly_list = []
     enemy_list = []
     win_rates = []
+    weights = []
     
-    skipped = 0
+    skipped_old = 0
+    skipped_heroes = 0
+    skipped_cross_team = 0
+    skipped_dupes = 0
+    
     for draft in drafts:
+        # Check date
+        date_str = draft.get("date", "20230101")
+        try:
+            year = int(date_str[:4])
+        except:
+            year = 2023
+        
+        # Filter by minimum year
+        if year < min_year:
+            skipped_old += 1
+            continue
+        
         # Map hero names to IDs (with case normalization)
         friendly_ids = []
         for name in draft["blue_picks"]:
             normalized = normalize_case(name)
-            if normalized in hero_to_id:
-                friendly_ids.append(hero_to_id[normalized])
+            if normalized in hero_lookup:
+                friendly_ids.append(hero_lookup[normalized])
+            elif name in hero_lookup:
+                friendly_ids.append(hero_lookup[name])
         
         enemy_ids = []
         for name in draft["red_picks"]:
             normalized = normalize_case(name)
-            if normalized in hero_to_id:
-                enemy_ids.append(hero_to_id[normalized])
+            if normalized in hero_lookup:
+                enemy_ids.append(hero_lookup[normalized])
+            elif name in hero_lookup:
+                enemy_ids.append(hero_lookup[name])
         
         # Skip if not enough heroes mapped
         if len(friendly_ids) < 5 or len(enemy_ids) < 5:
-            skipped += 1
+            skipped_heroes += 1
             continue
+        
+        # Filter cross-team: same hero on both teams (impossible in real MLBB)
+        if set(friendly_ids) & set(enemy_ids):
+            skipped_cross_team += 1
+            continue
+        
+        # Filter duplicate heroes within same team
+        if len(friendly_ids) != len(set(friendly_ids)) or len(enemy_ids) != len(set(enemy_ids)):
+            skipped_dupes += 1
+            continue
+        
+        # Calculate temporal weight (newer drafts get higher weight)
+        # Linear decay: year 2023 = 1.0, year min_year = ~0.1
+        year_weight = 0.1 + 0.9 * ((year - min_year) / max(1, max_year - min_year))
+        # Apply temporal decay factor
+        sample_weight = year_weight ** (1 + temporal_decay)
         
         # Win rate: 1.0 if blue wins, 0.0 if red wins
         win_rate = 1.0 if draft["winner"] == "t1" else 0.0
@@ -250,15 +350,26 @@ def load_tournament_drafts(hero_to_id: Dict[str, int]) -> Tuple[torch.Tensor, to
         friendly_list.append(friendly_ids[:5])
         enemy_list.append(enemy_ids[:5])
         win_rates.append(win_rate)
+        weights.append(sample_weight)
     
-    if skipped > 0:
-        print(f"  Warning: {skipped} drafts skipped due to unmapped heroes")
+    if skipped_old > 0:
+        print(f"  Skipped {skipped_old} drafts before {min_year}")
+    if skipped_heroes > 0:
+        print(f"  Skipped {skipped_heroes} drafts due to unmapped heroes")
+    if skipped_cross_team > 0:
+        print(f"  Skipped {skipped_cross_team} cross-team duplicate drafts")
+    if skipped_dupes > 0:
+        print(f"  Skipped {skipped_dupes} drafts with duplicate heroes within team")
     
     friendly = torch.tensor(friendly_list, dtype=torch.long)
     enemy = torch.tensor(enemy_list, dtype=torch.long)
     win_rates = torch.tensor(win_rates, dtype=torch.float)
+    weights = torch.tensor(weights, dtype=torch.float)
     
-    return friendly, enemy, win_rates
+    # Normalize weights to average to 1.0 (so total loss is comparable)
+    weights = weights / weights.mean()
+    
+    return friendly, enemy, win_rates, weights
 
 
 def train_model(
@@ -267,18 +378,20 @@ def train_model(
     enemy: torch.Tensor,
     win_rates: torch.Tensor,
     hero_features: torch.Tensor,
+    sample_weights: torch.Tensor,
     epochs: int = 100,
     lr: float = 0.001,
     batch_size: int = 32,
     device: str = "cpu",
     val_split: float = 0.1
 ) -> List[Dict]:
-    """Train the enhanced GCN model with validation."""
+    """Train the enhanced GCN model with temporal weighting."""
     # Split into train/val
     n = len(friendly)
     n_val = int(n * val_split)
     n_train = n - n_val
     
+    # Stratified split (maintain temporal distribution)
     indices = torch.randperm(n)
     train_idx = indices[:n_train]
     val_idx = indices[n_train:]
@@ -286,6 +399,7 @@ def train_model(
     train_friendly = friendly[train_idx].to(device)
     train_enemy = enemy[train_idx].to(device)
     train_winrates = win_rates[train_idx].to(device)
+    train_weights = sample_weights[train_idx].to(device)
     
     val_friendly = friendly[val_idx].to(device)
     val_enemy = enemy[val_idx].to(device)
@@ -296,9 +410,9 @@ def train_model(
     
     optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=10)
-    criterion = nn.MSELoss()
+    criterion = nn.MSELoss(reduction='none')  # We'll apply weights manually
     
-    train_dataset = TensorDataset(train_friendly, train_enemy, train_winrates)
+    train_dataset = TensorDataset(train_friendly, train_enemy, train_winrates, train_weights)
     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     
     history = []
@@ -313,7 +427,7 @@ def train_model(
         total_train_loss = 0.0
         n_batches = 0
         
-        for batch_friendly, batch_enemy, batch_winrates in train_dataloader:
+        for batch_friendly, batch_enemy, batch_winrates, batch_weights in train_dataloader:
             optimizer.zero_grad()
             
             # Forward pass with hero features
@@ -326,15 +440,18 @@ def train_model(
                 hero_features=hero_feats_batch
             )
             
-            loss = criterion(pred, batch_winrates)
-            loss.backward()
+            # Weighted loss (newer drafts contribute more)
+            element_loss = criterion(pred, batch_winrates)
+            weighted_loss = (element_loss * batch_weights).sum()
+            
+            weighted_loss.backward()
             
             # Gradient clipping
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
             
             optimizer.step()
             
-            total_train_loss += loss.item()
+            total_train_loss += weighted_loss.item()
             n_batches += 1
         
         avg_train_loss = total_train_loss / max(n_batches, 1)
@@ -344,7 +461,7 @@ def train_model(
         with torch.no_grad():
             hero_feats_val = hero_features.unsqueeze(0).expand(len(val_friendly), -1, -1)
             val_pred = model(val_friendly, val_enemy, hero_feats_val)
-            val_loss = criterion(val_pred, val_winrates).item()
+            val_loss = criterion(val_pred, val_winrates).mean().item()
         
         scheduler.step(val_loss)
         
@@ -386,6 +503,10 @@ def main():
     parser.add_argument("--output", type=str, default="training/data/gcn_model_v2.pt", help="Output model path")
     parser.add_argument("--device", type=str, default="cpu", help="Device (cpu/cuda)")
     parser.add_argument("--val-split", type=float, default=0.1, help="Validation split ratio")
+    parser.add_argument("--hidden-dim", type=int, default=128, help="Hidden dimension (128=small, 256=medium, 512=large)")
+    parser.add_argument("--num-layers", type=int, default=2, help="Number of GCN layers (1-4)")
+    parser.add_argument("--min-year", type=int, default=2017, help="Minimum year for drafts (2017=all, 2021=recent only)")
+    parser.add_argument("--temporal-decay", type=float, default=0.1, help="Temporal decay (0=equal weight, 1=only recent)")
     
     args = parser.parse_args()
     
@@ -397,6 +518,7 @@ def main():
     # Load all data
     print("\n[1/5] Loading hero mapping...")
     hero_to_id = load_hero_mapping()
+    hero_lookup = build_hero_lookup(hero_to_id)
     num_heros = len(hero_to_id)
     print(f"  {num_heros} heroes mapped")
     
@@ -406,36 +528,45 @@ def main():
     print(f"  Feature ranges: min={hero_features.min():.3f}, max={hero_features.max():.3f}")
     
     print("\n[3/5] Loading adjacency matrix (base + synergy)...")
-    adj = load_adjacency_matrix(hero_to_id)
+    adj = load_adjacency_matrix(hero_lookup)
     print(f"  Adjacency shape: {adj.shape}")
     print(f"  Non-zero edges: {(adj > 0).sum().item()}")
     print(f"  NaN check: {torch.isnan(adj).any().item()}")
     
-    print("\n[4/5] Loading tournament drafts...")
-    friendly, enemy, win_rates = load_tournament_drafts(hero_to_id)
+    print("\n[4/5] Loading tournament drafts with temporal weighting...")
+    print(f"  Min year: {args.min_year}, Temporal decay: {args.temporal_decay}")
+    friendly, enemy, win_rates, sample_weights = load_tournament_drafts(
+        hero_lookup, 
+        min_year=args.min_year,
+        temporal_decay=args.temporal_decay
+    )
     print(f"  {friendly.shape[0]} training samples")
     print(f"  Win rate distribution: mean={win_rates.mean():.3f}, std={win_rates.std():.3f}")
+    print(f"  Temporal weight range: {sample_weights.min():.4f} to {sample_weights.max():.4f}")
     
     # Initialize model
     print("\n[5/5] Initializing Enhanced MOBARec-GCN v2 model...")
     model = MOBARecGCN(
         num_heros=num_heros,
-        input_dim=128,
-        hidden_dim=128,
-        output_dim=64,
-        hero_feature_dim=10  # Updated: 10 features now
+        input_dim=args.hidden_dim,
+        hidden_dim=args.hidden_dim,
+        output_dim=args.hidden_dim // 2,
+        hero_feature_dim=10
     )
     model.set_adjacency_matrix(adj)
     
-    print(f"  Parameters: {sum(p.numel() for p in model.parameters()):,}")
+    param_count = sum(p.numel() for p in model.parameters())
+    print(f"  Parameters: {param_count:,}")
+    print(f"  Hidden dim: {args.hidden_dim}")
     print(f"  Hero feature dim: 10 (win_rate, pick_rate, ban_rate, meta_score,")
     print(f"                      trend, weighted_wr, recency, total_games,")
     print(f"                      synergy_wr, synergy_games)")
+    print(f"  Model size: {'Small' if param_count < 100000 else 'Medium' if param_count < 500000 else 'Large'}")
     
     # Train
     print(f"\nTraining for {args.epochs} epochs (val_split={args.val_split})...")
     history = train_model(
-        model, friendly, enemy, win_rates, hero_features,
+        model, friendly, enemy, win_rates, hero_features, sample_weights,
         args.epochs, args.lr, args.batch_size, args.device, args.val_split
     )
     
@@ -443,13 +574,13 @@ def main():
     state_dict = {k: v for k, v in model.state_dict().items() if k != "_adj_matrix"}
     torch.save({
         "model_state_dict": state_dict,
-        "hero_to_id": hero_to_id,
+        "hero_to_id": hero_lookup,  # Use normalized lookup for inference
         "hero_features": hero_features,
         "adjacency_matrix": adj,
         "num_heros": num_heros,
-        "input_dim": 128,
-        "hidden_dim": 128,
-        "output_dim": 64,
+        "input_dim": args.hidden_dim,
+        "hidden_dim": args.hidden_dim,
+        "output_dim": args.hidden_dim // 2,
         "hero_feature_dim": 10,
         "history": history,
     }, args.output)
