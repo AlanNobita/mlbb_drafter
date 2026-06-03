@@ -30,5 +30,24 @@ runs/
 !training/data/adjacency_matrix.pt
 !training/data/gcn_model_v2.pt
 
+# Training data (large files - keep in Git LFS or separate)
+training/data/api_data/
+training/data/hero_cooccurrence_tournament.json
+training/data/synergy_matrix_tournament.json
+training/data/era_hero_stats.json
+training/data/hero_temporal_stats.json
+training/data/patch_timeline.json
+training/data/hero_stats_comprehensive.csv
+training/data/hero_stats_real.csv
+training/data/hero_stats_temporal.csv
+training/data/tournament_drafts.json
+training/data/tournament_training.csv
+training/data/synthetic_drafts.csv
+training/data/MLBB_TRAINING_DATA_FINAL.json
+training/data/mlbb_data_consolidated.json
+training/backups/
+drive_data/
+drive-download-*.zip
+
 # Logs
 *.log

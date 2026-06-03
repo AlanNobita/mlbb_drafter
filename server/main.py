@@ -2,6 +2,8 @@
 import asyncio
 import sys
 import os
+import json
+from pathlib import Path
 
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -17,6 +19,8 @@ from server.websocket import WebSocketServer
 from server.recommendation import MOBARecGCN, DraftState
 from server.data import HeroDataLoader
 
+import torch
+
 
 class MLdrafterServer:
     """Main server that orchestrates capture, detection, and recommendations."""
@@ -31,10 +35,63 @@ class MLdrafterServer:
         # Initialize data loader and GCN model
         self.hero_loader = HeroDataLoader()
         self.hero_loader.load_hero_meta()
-        self.gcn_model = MOBARecGCN(num_heros=len(self.hero_loader.heroes))
+        
+        # Load trained GCN model
+        self.gcn_model = self._load_gcn_model()
         
         # Draft state tracker
         self.draft_state = DraftState()
+    
+    def _load_gcn_model(self):
+        """Load trained GCN model with weights and adjacency matrix."""
+        model_path = Path(__file__).parent.parent / "training" / "data" / "gcn_model_v2.pt"
+        
+        if not model_path.exists():
+            print(f"Warning: No trained model found at {model_path}")
+            print("  Using untrained model (recommendations will be random)")
+            num_heros = len(self.hero_loader.heroes)
+            model = MOBARecGCN(num_heros=num_heros)
+            self.hero_name_to_id = {}
+            self.hero_features = None
+            return model
+        
+        try:
+            # Load checkpoint
+            checkpoint = torch.load(model_path, map_location="cpu", weights_only=False)
+            
+            num_heros = checkpoint.get("num_heros", 132)
+            model = MOBARecGCN(
+                num_heros=num_heros,
+                input_dim=checkpoint.get("input_dim", 128),
+                hidden_dim=checkpoint.get("hidden_dim", 128),
+                output_dim=checkpoint.get("output_dim", 64),
+                hero_feature_dim=checkpoint.get("hero_feature_dim", 8)
+            )
+            
+            # Load trained weights
+            model.load_state_dict(checkpoint["model_state_dict"])
+            
+            # Load adjacency matrix
+            if "adjacency_matrix" in checkpoint:
+                model.set_adjacency_matrix(checkpoint["adjacency_matrix"])
+                print(f"  Loaded adjacency matrix: {checkpoint['adjacency_matrix'].shape}")
+            
+            # Store hero mapping and features for recommendations
+            self.hero_name_to_id = checkpoint.get("hero_to_id", {})
+            self.hero_features = checkpoint.get("hero_features", None)
+            
+            print(f"  Loaded trained GCN model ({num_heros} heroes, {sum(p.numel() for p in model.parameters()):,} params)")
+            
+            return model
+            
+        except Exception as e:
+            print(f"Error loading model: {e}")
+            print("  Falling back to untrained model")
+            num_heros = len(self.hero_loader.heroes)
+            model = MOBARecGCN(num_heros=num_heros)
+            self.hero_name_to_id = {}
+            self.hero_features = None
+            return model
     
     def _create_detector(self):
         """Create detector based on DETECTOR_TYPE config."""
@@ -92,6 +149,8 @@ class MLdrafterServer:
                     recs = self.gcn_model.recommend(
                         self.draft_state.to_dict(),
                         [h["name"] for h in available],
+                        hero_name_to_id=self.hero_name_to_id,
+                        hero_features=self.hero_features,
                         top_k=3
                     )
                     
