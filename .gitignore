@@ -32,6 +32,9 @@ runs/
 
 # Training data (large files - keep in Git LFS or separate)
 training/data/api_data/
+training/data/kaggle_raw/
+training/data/kaggle_ranked_drafts.json
+training/data/openmlbb_fetch.log
 training/data/hero_cooccurrence_tournament.json
 training/data/synergy_matrix_tournament.json
 training/data/era_hero_stats.json
