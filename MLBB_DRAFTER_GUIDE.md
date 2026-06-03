@@ -11,29 +11,31 @@ A computer-vision-powered tool that watches your MLBB draft screen, detects hero
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────┐
-│                   PC (Server)                   │
-│                                                 │
-│  ┌──────────┐   ┌──────────┐   ┌────────────┐  │
-│  │ ADB      │──▶│ YOLOv8n  │──▶│ GCN Model  │  │
-│  │ Capture  │   │ Detector │   │ Recommend  │  │
-│  │ (read)   │   │ (roles)  │   │ (top 3)    │  │
-│  └──────────┘   └──────────┘   └─────┬──────┘  │
-│                                      │          │
-│                              ┌───────▼────────┐ │
-│                              │  WebSocket     │ │
-│                              │  Server        │ │
-│                              └───────┬────────┘ │
-└──────────────────────────────────────┼──────────┘
-                                       │
-                    ┌──────────────────┼────────────┐
-                    ▼                  ▼            ▼
-              ┌──────────┐    ┌──────────────┐  ┌────────┐
-              │ Web      │    │ Android      │  │ Mobile │
-              │ Dashboard│    │ Overlay App  │  │ Client │
-              │ (HTML)   │    │ (Kotlin)     │  │ (WS)   │
-              └──────────┘    └──────────────┘  └────────┘
+┌─────────────────────────────────────────────────────┐
+│                   PC (Server)                       │
+│                                                     │
+│  ┌──────────┐   ┌──────────┐   ┌────────────────┐  │
+│  │ ADB      │──▶│ YOLOv8n  │──▶│ GCN Model v2   │  │
+│  │ Capture  │   │ Detector │   │ 132 heroes     │  │
+│  │ (read)   │   │ (roles)  │   │ Counter boost  │  │
+│  └──────────┘   └──────────┘   └───────┬────────┘  │
+│                                        │            │
+│                                ┌───────▼────────┐   │
+│                                │  WebSocket     │   │
+│                                │  Server        │   │
+│                                └───────┬────────┘   │
+└────────────────────────────────────────┼────────────┘
+                                         │
+                    ┌────────────────────┼────────────┐
+                    ▼                    ▼            ▼
+              ┌──────────┐      ┌──────────────┐  ┌────────┐
+              │ Web      │      │ Android      │  │ Mobile │
+              │ Dashboard│      │ Overlay App  │  │ Client │
+              │ (HTML)   │      │ (Kotlin)     │  │ (WS)   │
+              └──────────┘      └──────────────┘  └────────┘
 ```
+
+**Pipeline:** Capture → Detect → Track → Recommend → Broadcast → Display
 
 ## Tech Stack
 
@@ -41,10 +43,10 @@ A computer-vision-powered tool that watches your MLBB draft screen, detects hero
 |-------|------|-----|
 | Screen capture | `adb exec-out screencap -p` | No phone app needed, read-only |
 | Detection | YOLOv8n-OBB (ultralytics) | Real-time, oriented bounding boxes |
-| Recommendation | PyTorch GCN (single-layer) | Graph structure fits hero synergies |
+| Recommendation | PyTorch GCN (132 heroes) | Graph structure fits hero synergies |
 | Communication | WebSocket (persistent) | Bidirectional, low-latency |
 | Dashboard | HTML + CSS + JS | Universal, no install |
-| Future overlay | Kotlin + SYSTEM_ALERT_WINDOW | Native Android floating window |
+| Data | 37K+ tournament drafts | Real esports + ranked matches |
 
 ## Project Structure
 
@@ -54,50 +56,63 @@ mlbb_drafter/
 │   ├── main.py               # Entry point, async capture loop
 │   ├── config.py             # All configuration (env vars)
 │   ├── capture/
-│   │   ├── __init__.py
 │   │   └── adb_capture.py    # ADB screen capture (USB + wireless)
 │   ├── detection/
-│   │   ├── __init__.py
 │   │   ├── yolo_detector.py  # YOLOv8n-OBB hero detection
 │   │   └── dummy_detector.py # Random detection for testing
 │   ├── recommendation/
-│   │   ├── __init__.py
-│   │   ├── gcn_model.py      # MOBARec-GCNFP model (47k params)
+│   │   ├── gcn_model_v2.py   # Enhanced GCN (132 heroes, counter boost)
+│   │   ├── gcn_model.py      # Original GCN (legacy, 30 heroes)
 │   │   └── draft_state.py    # Draft state tracker
-│   ├── websocket/
-│   │   ├── __init__.py
-│   │   └── server.py         # WebSocket broadcast server
-│   └── data/
-│       ├── __init__.py
-│       ├── loader.py          # Hero metadata loader
-│       ├── tournament_loader.py # Tournament data + co-occurrence
-│       └── scraper.py         # Liquipedia async scraper
+│   ├── data/
+│   │   ├── loader.py         # Hero metadata loader
+│   │   ├── tournament_loader.py # Tournament data loader
+│   │   └── scraper.py        # Liquipedia async scraper
+│   └── websocket/
+│       └── server.py         # WebSocket broadcast server
 ├── shared/
-│   └── hero_meta.json         # 30-hero MVP metadata
+│   ├── hero_meta.json        # 132 heroes metadata
+│   └── constants.py          # Shared constants
 ├── web_dashboard/
-│   ├── index.html             # Dashboard UI
-│   ├── app.js                 # WebSocket client + UI updates
-│   └── style.css              # Dashboard styles
+│   ├── index.html            # Dashboard UI
+│   ├── app.js                # WebSocket client
+│   └── style.css             # Dashboard styles
 ├── training/
-│   ├── generate_synthetic.py  # 10k synthetic draft records
-│   ├── generate_images.py     # 5k synthetic hero icon images
-│   ├── train_yolo.py          # YOLO training script
-│   ├── train_gcn.py           # GCN training script
-│   ├── capture_screenshots.py # Real screenshot capture via ADB
-│   ├── dataset.yaml           # YOLO dataset config (6 classes)
-│   └── data/
-│       ├── synthetic_drafts.csv    # 10k draft records
-│       ├── adjacency_matrix.pt     # 30x30 hero co-occurrence
-│       ├── gcn_model_v2.pt         # Trained GCN weights
-│       └── synthetic_images/       # 5k images (4k train / 1k val)
-│           ├── images/train/
-│           ├── images/val/
-│           ├── labels/train/
-│           └── labels/val/
-├── tests/                     # 46 unit tests
-├── pyproject.toml
-├── requirements.txt
-└── PRODUCTION_GUIDE.md
+│   ├── train_gcn_enhanced.py # Main training script (uses ALL data)
+│   ├── train_gcn.py          # Old training (deprecated)
+│   ├── train_yolo.py         # YOLO training for detection
+│   ├── fetch_all_data.py     # Fetch from all APIs (merge mode)
+│   ├── fetch_hero_stats_api.py # Hero stats fetcher
+│   ├── fetch_openmlbb_full.py # Comprehensive OpenMLBB fetcher
+│   ├── fetch_mlbb_io.py      # mlbb.io ranked stats fetcher
+│   ├── fetch_kaggle_datasets.py # Kaggle dataset downloader
+│   ├── fetch_liquipedia.py   # Liquipedia tournament scraper
+│   ├── process_drive_data.py # Process tournament data
+│   ├── process_api_data.py   # Process API data
+│   ├── add_temporal_features.py # Add time-aware features
+│   ├── create_final_training_data.py # Consolidate all data
+│   ├── backup_data.py        # Backup before updates
+│   ├── generate_synthetic.py # Synthetic draft generation
+│   ├── generate_images.py    # Synthetic image generation
+│   ├── capture_screenshots.py # Real screenshot capture
+│   └── data/                 # All training data
+│       ├── gcn_model_v2.pt   # Trained model (132 heroes, 18.7K params)
+│       ├── tournament_drafts.json # 37,373 tournament + ranked matches
+│       ├── adjacency_real.json # 132x132 hero relationships
+│       ├── hero_stats_temporal.csv # Temporal features
+│       ├── hero_cooccurrence_tournament.json # Synergy stats
+│       ├── synergy_matrix_tournament.json # Tournament synergy
+│       ├── era_hero_stats.json # Per-patch hero stats (31 eras)
+│       ├── patch_timeline.json # 54 patches
+│       └── api_data/         # Raw API data (17 files)
+├── tests/                    # Unit & integration tests
+├── docs/                     # Documentation
+├── drive_data/               # Tournament data from Google Drive
+├── runs/                     # YOLO training outputs
+├── pyproject.toml            # Python project config
+├── requirements.txt          # Python dependencies
+├── README.md                 # Main documentation
+└── MLBB_DRAFTER_GUIDE.md     # This file
 ```
 
 ## Quick Start
@@ -115,11 +130,10 @@ pip install -r requirements.txt
 
 ```bash
 # Start server with random detection for testing
-python server/main.py
+python -m server.main
 
-# Open dashboard
-# Serve web_dashboard/ on port 8080 (any HTTP server)
-cd web_dashboard && python -m http.server 8080
+# Open dashboard in a new terminal
+python -m http.server 8080 --directory web_dashboard
 ```
 
 ### 3. Run with YOLO Detector
@@ -128,7 +142,7 @@ cd web_dashboard && python -m http.server 8080
 # Train YOLO first (see Training section below)
 # Then:
 DETECTOR_TYPE=yolo YOLO_MODEL_PATH=runs/train/mlbb_hero_detect/weights/best.pt \
-  python server/main.py
+  python -m server.main
 ```
 
 ### 4. Wireless ADB (No USB Cable)
@@ -145,7 +159,7 @@ adb pair 192.168.1.50:37913
 adb connect 192.168.1.50:5555
 
 # Run server with device
-ADB_DEVICE=192.168.1.50:5555 DETECTOR_TYPE=yolo python server/main.py
+ADB_DEVICE=192.168.1.50:5555 DETECTOR_TYPE=yolo python -m server.main
 ```
 
 ### 5. Run Tests
@@ -153,7 +167,6 @@ ADB_DEVICE=192.168.1.50:5555 DETECTOR_TYPE=yolo python server/main.py
 ```bash
 source venv/bin/activate
 pytest tests/ -v
-# 46 tests, ~4.6s
 ```
 
 ## Configuration
@@ -174,41 +187,44 @@ All config is in `server/config.py` via environment variables:
 | `YOLO_DEVICE` | `cpu` | `cpu` or `cuda:0` |
 | `DASHBOARD_PORT` | `8080` | HTTP dashboard port |
 
-## GCN Model (MOBARec-GCNFP)
+## GCN Model (MOBARec-GCNFP v2)
 
-Single-layer Graph Convolutional Network for hero recommendation.
+Enhanced Graph Convolutional Network for hero recommendation.
 
 ### Architecture
 
 ```
-Hero IDs → Embedding(30, 128) → GCN(128→128) → ReLU → Linear(128→64) → Score
+Hero Features (10 dims) → Linear(10, 256) → GCN(256, 256) → ReLU → Linear(256, 1) → Sigmoid
 ```
 
-- **Parameters:** 47,070 (under 60k budget)
-- **Inference time:** 0.12ms on CPU
-- **Input:** Draft state (ally picks, enemy picks, bans)
-- **Output:** Top-k hero recommendations with scores
-
-### Dynamic Match Embedding
-
-```
-em0 = Σ(efriendly) - Σ(eopponent)
-```
-
-The model computes a match embedding from picked heroes, then scores available heroes based on the graph structure (co-occurrence adjacency matrix).
+- **Heroes:** 132 (full MLBB roster)
+- **Features per hero:** 10
+  - win_rate, pick_rate, ban_rate
+  - meta_score, trend
+  - weighted_win_rate, recency_score
+  - total_games
+  - synergy_win_rate, synergy_games
+- **Graph:** 132x132 adjacency matrix (11,380 edges)
+- **Parameters:** 18,744
+- **Output:** Win probability [0, 1]
 
 ### How Recommendations Work
 
-1. Build hero embedding matrix: `hero_embedding(30, 128)`
+1. Build hero embedding matrix: `hero_features(132, 10)`
 2. Apply GCN with adjacency matrix: `gcn_out = ReLU(A · H · W + b)`
-3. Score each available hero via projection layers
-4. Return top-k by score
+3. Dynamic match embedding: `em0 = Σ(ally_heroes) - Σ(enemy_heroes)`
+4. Score each available hero via projection layers
+5. Counter boost: +15% for counter picks
+6. Return top-k by score
 
 ### Training
 
 ```bash
-# Train GCN on synthetic drafts (10k records)
-python training/train_gcn.py
+# Train GCN on all data (recommended)
+python training/train_gcn_enhanced.py --epochs 500
+
+# With temporal weighting
+python training/train_gcn_enhanced.py --epochs 500 --min-year 2021 --temporal-decay 0.5
 
 # Output: training/data/gcn_model_v2.pt
 ```
@@ -216,9 +232,9 @@ python training/train_gcn.py
 ### Adjacency Matrix
 
 Built from hero co-occurrence in draft data:
-- 30x30 matrix (30 heroes in MVP)
+- 132x132 matrix (132 heroes)
 - Non-zero = heroes picked together in same draft
-- Saved as `training/data/adjacency_matrix.pt`
+- Saved as `training/data/adjacency_real.json`
 
 ## YOLO Detection
 
@@ -317,44 +333,32 @@ names:
 
 ## Data Pipeline
 
-### Synthetic Draft Generation
-
-```bash
-python training/generate_synthetic.py
-# Output: training/data/synthetic_drafts.csv (10k records)
-# Columns: friendly_picks, enemy_picks, bans, win_rate
-```
-
 ### Tournament Data
 
-- Source: [LiTianYeoh/MLBB_Tournament_Analysis](https://github.com/LiTianYeoh/MLBB_Tournament_Analysis)
-- Loader: `server/data/tournament_loader.py`
-- Builds co-occurrence matrix for adjacency tensor
+- Source: Google Drive tournament data (M1-M5, MPL, MDL)
+- Processor: `training/process_drive_data.py`
+- Output: `training/data/tournament_drafts.json` (37,373 matches)
 
-### Liquipedia Scraper
+### API Data
 
-```bash
-# Async scraper with rate limiting (2s delay)
-# Fetches hero stats, win rates, synergies
-# Entry: server/data/scraper.py
-```
+- **OpenMLBB:** Hero stats, counters, synergies (132 heroes)
+- **Pren7/MLBB-Winrate:** Daily win/pick/ban rates (132 heroes)
+- **p3hndrx:** Hero metadata (132 heroes)
+- **Kaggle:** Ranked matches (10,664), M5/M7 tournament data
 
 ### Hero Metadata (`shared/hero_meta.json`)
 
 ```json
 {
   "heroes": [
-    {"id": 1, "name": "Lancelot", "role": "Assassin", "lanes": ["Jungle"]},
-    {"id": 6, "name": "Chou", "role": "Fighter", "lanes": ["EXP", "Roam"]},
-    {"id": 9, "name": "Kagura", "role": "Mage", "lanes": ["Mid"]},
-    {"id": 16, "name": "Atlas", "role": "Tank", "lanes": ["Roam"]},
-    {"id": 21, "name": "Angela", "role": "Support", "lanes": ["Roam"]},
-    {"id": 26, "name": "Granger", "role": "Marksman", "lanes": ["Gold"]}
+    {"id": 1, "name": "Miya", "real_name": "Miya, the Moonlight Archer", "role": "Marksman", "lanes": ["Gold"]},
+    {"id": 2, "name": "Balmond", "real_name": "Balmond, the Dwarf Warrior", "role": "Fighter", "lanes": ["EXP", "Jungle"]},
+    {"id": 3, "name": "Saber", "real_name": "Saber, the Triple Sweep", "role": "Assassin", "lanes": ["Jungle"]}
   ]
 }
 ```
 
-**MVP:** 30 heroes (5 assassins, 4 fighters, 4 mages, 5 tanks, 5 supports, 5 marksmen). Expand to 503+ via scraper.
+**Coverage:** 132 heroes with full metadata.
 
 ## Server Pipeline
 
@@ -385,8 +389,12 @@ ADB capture → YOLO detect → Position categorize → Update draft state
       {"hero": "Chou", "win_rate": 0.682},
       {"hero": "Granger", "win_rate": 0.651}
     ],
-    "counter_picks": [],
-    "synergy_picks": []
+    "counter_picks": [
+      {"hero": "Saber", "win_rate": 0.620}
+    ],
+    "synergy_picks": [
+      {"hero": "Estes", "win_rate": 0.615}
+    ]
   },
   "draft_complete": false
 }
@@ -411,6 +419,8 @@ Open `http://localhost:8080` in browser.
 - Live draft updates via WebSocket
 - Ally/Enemy/Ban hero lists
 - Top 3 recommendations with win rates
+- Counter picks (heroes that counter enemy team)
+- Synergy picks (heroes that work well with your team)
 - Strategy flags (Early Game, Late Game, Team Fight, etc.)
 - Counter alerts
 - Role lane assignments (EXP, Gold, Mid, Roam, Jungle)
@@ -428,8 +438,8 @@ Open `http://localhost:8080` in browser.
 ### What This Tool Does
 
 - Captures screenshots via ADB (read-only)
-- Analyzes images with computer vision
-- Displays recommendations on a separate screen
+- Analyzes images with computer vision (YOLO)
+- Provides recommendations via overlay dashboard
 - Zero interaction with the game client
 
 ### What This Tool Never Does
@@ -441,14 +451,16 @@ Open `http://localhost:8080` in browser.
 
 ## Testing
 
-### Test Suite (46 tests)
+### Test Suite
 
 ```bash
 pytest tests/ -v
 
-# test_capture.py (9 tests)
-#   - ADBCapture init, buffer, methods
-#   - Wireless ADB support (device_serial, connect, disconnect, is_connected)
+# test_integration.py (14 tests)
+#   - End-to-end pipeline, GCN forward pass, draft state
+#
+# test_recommendation.py (9 tests)
+#   - MOBARecGCN init, forward pass, adjacency, recommend determinism
 #
 # test_detection.py (3 tests)
 #   - DummyDetector init, detection
@@ -456,11 +468,8 @@ pytest tests/ -v
 # test_yolo_detector.py (2 tests)
 #   - YOLODetector init, empty detection
 #
-# test_recommendation.py (9 tests)
-#   - MOBARecGCN init, forward pass, adjacency, recommend determinism
-#
-# test_integration.py (14 tests)
-#   - End-to-end pipeline, adjacency matrix, data pipeline
+# test_capture.py (9 tests)
+#   - ADBCapture init, buffer, methods, wireless ADB
 #
 # test_websocket.py (3 tests)
 #   - WebSocketServer init, broadcast, start
@@ -484,82 +493,11 @@ def test_feature():
 
 ## Known Limitations
 
-1. **30-hero MVP** — Not full 503 hero pool. Expand via scraper rerun.
-2. **Synthetic training data** — Domain gap with real screenshots. Fine-tune on real data.
-3. **YOLO trained on CPU** — Extremely slow (~33 min/epoch). Use GPU.
-4. **No tournament dataset** — Needs download from GitHub source.
-5. **No Android overlay yet** — Web dashboard only for now.
-6. **No latency measurement** — WebSocket ping/pong not implemented.
-
-## Roadmap
-
-### Phase 1: MVP Pipeline (Current)
-- [x] ADB capture (USB + wireless)
-- [x] Dummy detector for testing
-- [x] YOLO detector skeleton
-- [x] GCN model (47k params)
-- [x] WebSocket server
-- [x] Web dashboard
-- [x] Synthetic data generation
-- [x] 46 unit tests
-
-### Phase 2: Training
-- [ ] Capture 100+ real screenshots
-- [ ] Train YOLO on GPU
-- [ ] Fine-tune on real data
-- [ ] Download tournament dataset
-- [ ] Train GCN on real data
-- [ ] Measure Recall@1, NDCG@3
-
-### Phase 3: Production
-- [ ] Android overlay app (Kotlin)
-- [ ] Latency benchmarking (200ms target)
-- [ ] Memory profiling (<500MB target)
-- [ ] Error recovery / reconnection
-- [ ] Hero expansion to 503+
-
-### Phase 4: Advanced
-- [ ] Counter-pick logic (enemy-specific)
-- [ ] Synergy detection (team composition)
-- [ ] Meta-aware recommendations (patch updates)
-- [ ] Multi-device support
-
-## Performance Targets
-
-| Metric | Target | Current |
-|--------|--------|---------|
-| Full pipeline latency | <200ms | Not measured |
-| GCN inference | <100ms | 0.12ms |
-| Memory usage | <500MB | Not measured |
-| Capture FPS | 5-10 | 5 (configurable) |
-| GCN parameters | <60k | 47,070 |
-| Dashboard updates | Real-time | WebSocket |
-
-## FAQ
-
-### Q: Will this get me banned?
-
-**No.** The tool only reads your screen via ADB. It never interacts with the game client, never modifies files, never sends input commands. It's visually equivalent to having a friend watch your screen and give advice.
-
-### Q: Do I need a USB cable?
-
-**No.** Wireless ADB is supported. Enable Developer Options > Wireless Debugging on your phone, then `adb pair` + `adb connect`.
-
-### Q: What hardware do I need?
-
-- **PC:** Any modern CPU (GCN inference is 0.12ms). YOLO benefits from GPU.
-- **Phone:** Any Android phone with USB debugging or wireless debugging.
-
-### Q: Can I use this on emulator?
-
-**Yes.** Most Android emulators (BlueStacks, LDPlayer, MEmu) support ADB. Set `ADB_DEVICE` to the emulator's ADB port.
-
-### Q: How do I expand to all 503 heroes?
-
-1. Run `server/data/scraper.py` to fetch full hero data from Liquipedia
-2. Update `shared/hero_meta.json` with full roster
-3. Regenerate synthetic images with `training/generate_images.py`
-4. Retrain YOLO and GCN on expanded data
+1. **YOLO trained on synthetic data** — Domain gap with real screenshots. Fine-tune on real data.
+2. **No Android overlay yet** — Web dashboard only for now.
+3. **No latency measurement** — WebSocket ping/pong not implemented.
+4. **Liquipedia rate limited** — IP-level blocks from scraping.
+5. **mlbb.io needs API key** — Free at parse.bot.
 
 ## Files Reference
 
@@ -570,20 +508,33 @@ def test_feature():
 | `server/capture/adb_capture.py` | ADB screen capture with wireless support |
 | `server/detection/yolo_detector.py` | YOLOv8n-OBB hero detection |
 | `server/detection/dummy_detector.py` | Random detection for testing |
-| `server/recommendation/gcn_model.py` | MOBARec-GCNFP (47k params) |
+| `server/recommendation/gcn_model_v2.py` | Enhanced GCN (132 heroes, counter boost) |
+| `server/recommendation/gcn_model.py` | Original GCN (legacy, 30 heroes) |
 | `server/recommendation/draft_state.py` | Draft state tracker |
 | `server/websocket/server.py` | WebSocket broadcast server |
 | `server/data/loader.py` | Hero metadata loader |
 | `server/data/tournament_loader.py` | Tournament data + co-occurrence |
 | `server/data/scraper.py` | Liquipedia async scraper |
-| `shared/hero_meta.json` | 30-hero MVP metadata |
+| `shared/hero_meta.json` | 132 heroes metadata |
+| `shared/constants.py` | Shared constants |
 | `web_dashboard/index.html` | Dashboard UI |
 | `web_dashboard/app.js` | WebSocket client |
 | `web_dashboard/style.css` | Dashboard styles |
-| `training/generate_synthetic.py` | Synthetic draft data generator |
-| `training/generate_images.py` | Synthetic hero icon images |
+| `training/train_gcn_enhanced.py` | Main training script |
+| `training/train_gcn.py` | Legacy training (deprecated) |
 | `training/train_yolo.py` | YOLO training script |
-| `training/train_gcn.py` | GCN training script |
+| `training/fetch_all_data.py` | Master data fetcher |
+| `training/fetch_hero_stats_api.py` | Hero stats fetcher |
+| `training/fetch_openmlbb_full.py` | Comprehensive OpenMLBB fetcher |
+| `training/fetch_mlbb_io.py` | mlbb.io ranked stats fetcher |
+| `training/fetch_kaggle_datasets.py` | Kaggle dataset downloader |
+| `training/fetch_liquipedia.py` | Liquipedia tournament scraper |
+| `training/process_drive_data.py` | Tournament data processor |
+| `training/process_api_data.py` | API data processor |
+| `training/add_temporal_features.py` | Temporal features processor |
+| `training/create_final_training_data.py` | Data consolidator |
+| `training/generate_synthetic.py` | Synthetic draft generator |
+| `training/generate_images.py` | Synthetic image generator |
 | `training/capture_screenshots.py` | Real screenshot capture |
 | `training/dataset.yaml` | YOLO dataset config |
-| `tests/` | 46 unit tests |
+| `tests/` | Unit & integration tests |
