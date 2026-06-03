@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #eee;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #0f3460;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #e94560;
+}
+
+.status {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.status.connected {
+    background: #27ae60;
+}
+
+.status.disconnected {
+    background: #e74c3c;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+}
+
+h2 {
+    color: #e94560;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+h3 {
+    color: #0f3460;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.draft-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.team {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.hero-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hero-tag {
+    background: #0f3460;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.hero-tag.ally {
+    background: #2980b9;
+}
+
+.hero-tag.enemy {
+    background: #c0392b;
+}
+
+.hero-tag.ban {
+    background: #7f8c8d;
+}
+
+.rec-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rec-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    border-radius: 8px;
+}
+
+.rec-item .hero-name {
+    font-weight: bold;
+}
+
+.rec-item .win-rate {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #0f3460;
+    color: #888;
+}
+
+/* Strategy Flags */
+.strategy-section { margin: 20px 0; padding: 15px; background: rgba(26, 26, 46, 0.9); border-radius: 10px; }
+.flags-container { display: flex; gap: 10px; flex-wrap: wrap; }
+.flag { padding: 8px 16px; background: rgba(255,255,255,0.1); border-radius: 20px; font-size: 14px; transition: all 0.3s; cursor: default; }
+.flag.active { background: linear-gradient(135deg, #00d4ff, #7b2cbf); color: white; }
+
+/* Counter Alerts */
+.counter-section { margin: 20px 0; padding: 15px; background: rgba(26, 26, 46, 0.9); border-radius: 10px; }
+.alerts-list { display: flex; flex-direction: column; gap: 10px; }
+.alert-item { display: flex; align-items: center; gap: 10px; padding: 12px; background: rgba(255,107,107,0.2); border-radius: 8px; border-left: 4px solid #ff6b6b; }
+.alert-item.warning { background: rgba(255,193,7,0.2); border-left-color: #ffc107; }
+.alert-item.info { background: rgba(0,212,255,0.2); border-left-color: #00d4ff; }
+.alert-icon { font-size: 18px; }
+.alert-text { font-size: 14px; }
+
+/* Role Lanes */
+.lanes-section { margin: 20px 0; padding: 15px; background: rgba(26, 26, 46, 0.9); border-radius: 10px; }
+.lanes-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.lane { padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; text-align: center; }
+.lane-title { font-weight: bold; margin-bottom: 8px; color: #00d4ff; font-size: 13px; }
+.lane-heroes { font-size: 12px; color: rgba(255,255,255,0.8); min-height: 20px; }

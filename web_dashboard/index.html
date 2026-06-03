@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLBB Drafter Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MLBB Drafter</h1>
+            <div id="status" class="status disconnected">Disconnected</div>
+        </header>
+        
+        <main>
+            <section class="draft-panel">
+                <h2>Current Draft</h2>
+                <div class="draft-grid">
+                    <div class="team ally">
+                        <h3>Ally Team</h3>
+                        <div id="ally-picks" class="hero-list"></div>
+                    </div>
+                    <div class="team enemy">
+                        <h3>Enemy Team</h3>
+                        <div id="enemy-picks" class="hero-list"></div>
+                    </div>
+                </div>
+                
+                <div class="bans-section">
+                    <h3>Banned Heroes</h3>
+                    <div id="bans" class="hero-list"></div>
+                </div>
+            </section>
+            
+            <section class="recommendations-panel">
+                <h2>Recommendations</h2>
+                <div class="rec-category">
+                    <h3>Top Picks</h3>
+                    <div id="top-picks" class="rec-list"></div>
+                </div>
+                <div class="rec-category">
+                    <h3>Counter Picks</h3>
+                    <div id="counter-picks" class="rec-list"></div>
+                </div>
+                <div class="rec-category">
+                    <h3>Synergy Picks</h3>
+                    <div id="synergy-picks" class="rec-list"></div>
+                </div>
+            </section>
+
+            <!-- Strategy Flags -->
+            <section class="strategy-section">
+                <h3>Strategy Flags</h3>
+                <div class="flags-container" id="strategy-flags">
+                    <span class="flag" data-flag="early_game">Early Game</span>
+                    <span class="flag" data-flag="late_game">Late Game</span>
+                    <span class="flag" data-flag="team_fight">Team Fight</span>
+                    <span class="flag" data-flag="split_push">Split Push</span>
+                    <span class="flag" data-flag="pick_off">Pick Off</span>
+                    <span class="flag" data-flag="push_tower">Push Tower</span>
+                </div>
+            </section>
+
+            <!-- Counter Alerts -->
+            <section class="counter-section">
+                <h3>Counter Alerts</h3>
+                <div id="alerts-container" class="alerts-list"></div>
+            </section>
+
+            <!-- Role Lanes -->
+            <section class="lanes-section">
+                <h3>Role Lanes</h3>
+                <div class="lanes-grid">
+                    <div class="lane" id="lane-exp"><div class="lane-title">EXP Lane</div><div class="lane-heroes" id="exp-heroes">-</div></div>
+                    <div class="lane" id="lane-gold"><div class="lane-title">Gold Lane</div><div class="lane-heroes" id="gold-heroes">-</div></div>
+                    <div class="lane" id="lane-mid"><div class="lane-title">Mid Lane</div><div class="lane-heroes" id="mid-heroes">-</div></div>
+                    <div class="lane" id="lane-roam"><div class="lane-title">Roam</div><div class="lane-heroes" id="roam-heroes">-</div></div>
+                    <div class="lane" id="lane-jungle"><div class="lane-title">Jungle</div><div class="lane-heroes" id="jungle-heroes">-</div></div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>MLBB Drafter - Real-time Draft Assistant</p>
+        </footer>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

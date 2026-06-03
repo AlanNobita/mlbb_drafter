@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+training/data/real/
+training/data/synthetic_images/
+runs/
+*.pt
+!training/data/adjacency_matrix.pt
+!training/data/gcn_model_v2.pt
+
+# Logs
+*.log

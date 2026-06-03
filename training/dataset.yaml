@@ -1,0 +1,11 @@
+path: /home/alan/Documents/code/mlbb_drafter/training/data/synthetic_images
+train: images/train
+val: images/val
+nc: 6
+names:
+  0: fighter
+  1: assassin
+  2: mage
+  3: tank
+  4: support
+  5: marksman
