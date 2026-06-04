@@ -17,6 +17,8 @@ from server.capture import ADBCapture
 from server.detection import DummyDetector, YOLODetector
 from server.websocket import WebSocketServer
 from server.recommendation import MOBARecGCN, DraftState
+from server.recommendation.scoring import HeroScorer
+from server.recommendation.scoring_data import ScoringData
 from server.data import HeroDataLoader
 
 import torch
@@ -24,20 +26,24 @@ import torch
 
 class MLdrafterServer:
     """Main server that orchestrates capture, detection, and recommendations."""
-    
+
     def __init__(self):
         self.capture = ADBCapture(buffer_size=1, device_serial=ADB_DEVICE or None)
         self.detector = self._create_detector()
         self.ws_server = WebSocketServer(host=WS_HOST, port=WS_PORT)
         self.running = False
         self._processing = False  # Frame dropping flag
-        
-        # Initialize data loader and GCN model
+
+        # Initialize data loader and scoring engine
         self.hero_loader = HeroDataLoader()
         self.hero_loader.load_hero_meta()
-        
-        # Load trained GCN model
-        self.gcn_model = self._load_gcn_model()
+
+        # New rule-based scoring engine (replaces GCN)
+        self.scoring_data = ScoringData()
+        self.scorer = HeroScorer(self.scoring_data)
+
+        # Hero name list for available heroes
+        self.hero_names = [h["name"] for h in self.hero_loader.heroes]
         
         # Draft state tracker
         self.draft_state = DraftState()
@@ -137,37 +143,47 @@ class MLdrafterServer:
             
             # Get recommendations if draft not complete
             recommendations = {"top_picks": [], "counter_picks": [], "synergy_picks": []}
-            
+
             if not self.draft_state.is_complete():
-                available = self.hero_loader.get_available_heroes(
-                    self.draft_state.ally_picks + self.draft_state.enemy_picks,
-                    self.draft_state.bans
-                )
-                
-                if available:
-                    # Get GCN recommendations (with counter boost)
-                    recs = self.gcn_model.recommend(
-                        self.draft_state.to_dict(),
-                        [h["name"] for h in available],
-                        hero_name_to_id=self.hero_name_to_id,
-                        hero_features=self.hero_features,
+                available_names = [
+                    h["name"] for h in self.hero_loader.heroes
+                    if h["name"] not in self.draft_state.ally_picks
+                    and h["name"] not in self.draft_state.enemy_picks
+                    and h["name"] not in self.draft_state.bans
+                ]
+
+                if available_names:
+                    # Determine needed lane
+                    needed_lane = self._get_needed_lane(
+                        self.draft_state.ally_picks
+                    )
+
+                    # Get rule-based recommendations
+                    recs = self.scorer.rank_heroes(
+                        available_heroes=available_names,
+                        ally_picks=self.draft_state.ally_picks,
+                        enemy_picks=self.draft_state.enemy_picks,
+                        needed_lane=needed_lane,
+                        enemy_bans=self.draft_state.bans,
                         top_k=3
                     )
-                    
+
                     recommendations["top_picks"] = [
-                        {"hero": hero, "win_rate": wr}
-                        for hero, wr in recs
+                        {"hero": hero, "win_rate": score}
+                        for hero, score in recs
                     ]
-                    
-                    # Build counter picks from API counter data
+
+                    # Counter picks: heroes that counter enemies
                     counter_picks = self._get_counter_picks(
-                        self.draft_state.enemy_picks, available
+                        self.draft_state.enemy_picks,
+                        available_names
                     )
                     recommendations["counter_picks"] = counter_picks
-                    
-                    # Build synergy picks from adjacency matrix
+
+                    # Synergy picks: heroes that synergize with allies
                     synergy_picks = self._get_synergy_picks(
-                        self.draft_state.ally_picks, available
+                        self.draft_state.ally_picks,
+                        available_names
                     )
                     recommendations["synergy_picks"] = synergy_picks
             
@@ -235,51 +251,90 @@ class MLdrafterServer:
                 return json.load(f)
         return {}
     
-    def _get_counter_picks(self, enemy_picks: list, available: list) -> list:
-        """Get counter pick recommendations based on enemy team."""
-        counter_data = self._load_counter_data()
-        available_names = {h["name"] for h in available}
-        
-        # Collect counters for all enemy heroes
-        counter_scores = {}
-        for enemy in enemy_picks:
-            if enemy in counter_data:
-                for counter in counter_data[enemy].get("counters", []):
-                    name = counter.get("name", "")
-                    wr = counter.get("win_rate", 0.5)
-                    if name in available_names and name not in counter_scores:
-                        counter_scores[name] = wr
-        
-        # Sort by win rate and return top 3
-        sorted_counters = sorted(counter_scores.items(), key=lambda x: x[1], reverse=True)
-        return [
-            {"hero": name, "win_rate": wr, "counters": enemy_picks[0] if enemy_picks else ""}
-            for name, wr in sorted_counters[:3]
-        ]
-    
-    def _get_synergy_picks(self, ally_picks: list, available: list) -> list:
-        """Get synergy pick recommendations based on ally team."""
-        available_names = {h["name"] for h in available}
-        
-        # Use hero_to_id and adjacency matrix for synergy
-        synergy_scores = {}
+    def _get_needed_lane(self, ally_picks: list) -> str:
+        """Determine which lane still needs to be filled.
+
+        Returns the first unfilled lane, or "Mid" as default.
+        """
+        all_lanes = {"EXP", "Gold", "Mid", "Jungle", "Roam"}
+        used_lanes = set()
         for ally in ally_picks:
-            if ally in self.hero_name_to_id:
-                ally_id = self.hero_name_to_id[ally]
-                # Check adjacency matrix for strong relationships
-                if hasattr(self.gcn_model, '_adj_matrix') and self.gcn_model._adj_matrix is not None:
-                    adj = self.gcn_model._adj_matrix
-                    for name, hid in self.hero_name_to_id.items():
-                        if name in available_names and name not in synergy_scores:
-                            score = adj[ally_id, hid].item() if hid < adj.shape[0] else 0
-                            if score > 0:
-                                synergy_scores[name] = score
-        
-        # Sort by synergy score and return top 3
-        sorted_synergies = sorted(synergy_scores.items(), key=lambda x: x[1], reverse=True)
+            lanes = self.scoring_data.get_hero_lanes(ally)
+            for lane in lanes:
+                lane_normalized = lane.replace(" Lane", "")
+                used_lanes.add(lane_normalized)
+
+        unfilled = all_lanes - used_lanes
+        # Priority order for unfilled lanes
+        priority = ["Jungle", "Mid", "EXP", "Gold", "Roam"]
+        for lane in priority:
+            if lane in unfilled:
+                return lane
+        return "Mid"
+
+    def _get_counter_picks(self, enemy_picks: list, available: list) -> list:
+        """Get counter pick recommendations based on enemy team.
+
+        Uses scoring data with double-check validation:
+        - HIGH confidence (both sources agree) = strong counter
+        - MEDIUM/LOW confidence = possible counter
+        """
+        if not enemy_picks:
+            return []
+
+        available_names = {h["name"] if isinstance(h, dict) else h for h in available}
+
+        counter_scores = []
+        for hero in available_names:
+            total_conf = 0.0
+            countered_enemies = []
+            for enemy in enemy_picks:
+                conf, level = self.scoring_data.get_counter_confidence(hero, enemy)
+                if conf > 0:
+                    total_conf += conf
+                    countered_enemies.append(f"{enemy}({level})")
+            if total_conf > 0:
+                counter_scores.append((hero, total_conf, countered_enemies))
+
+        counter_scores.sort(key=lambda x: x[1], reverse=True)
+
         return [
-            {"hero": name, "synergy_score": score}
-            for name, score in sorted_synergies[:3]
+            {
+                "hero": name,
+                "confidence": round(score, 2),
+                "counters": enemies
+            }
+            for name, score, enemies in counter_scores[:3]
+        ]
+
+    def _get_synergy_picks(self, ally_picks: list, available: list) -> list:
+        """Get synergy pick recommendations based on ally team.
+
+        Uses scoring data merged from openmlbb_heroes, mlbb_io_overviews, and hero_meta.
+        """
+        if not ally_picks:
+            return []
+
+        available_names = {h["name"] if isinstance(h, dict) else h for h in available}
+
+        synergy_scores = []
+        for hero in available_names:
+            matched_synergies = []
+            for ally in ally_picks:
+                if hero in self.scoring_data.get_synergies(ally):
+                    matched_synergies.append(ally)
+            if matched_synergies:
+                synergy_scores.append((hero, len(matched_synergies), matched_synergies))
+
+        synergy_scores.sort(key=lambda x: x[1], reverse=True)
+
+        return [
+            {
+                "hero": name,
+                "synergy_count": count,
+                "synergizes_with": allies
+            }
+            for name, count, allies in synergy_scores[:3]
         ]
 
 
