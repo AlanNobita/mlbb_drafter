@@ -1,4 +1,12 @@
-"""MOBARec-GCNFP v2: Enhanced GCN with full API data integration."""
+"""MOBARec-GCNFP v2: Enhanced GCN with full API data integration.
+
+DEPRECATED: The GCN model has been replaced by the rule-based HeroScorer
+in server/recommendation/scoring.py. This file is kept for reference only.
+
+The GCN model achieved ~57% accuracy on tournament draft prediction,
+barely above the 56% baseline. The rule-based scorer is transparent,
+explainable, and uses correct counter/synergy data from multiple sources.
+"""
 import json
 import torch
 import torch.nn as nn
@@ -167,7 +175,8 @@ class MOBARecGCN(nn.Module):
         hero_meta: dict = None,
         top_k: int = 5,
         counter_data: dict = None,
-        filter_lanes: bool = True
+        filter_lanes: bool = True,
+        needed_lane: str = None
     ) -> list:
         """Get top-k hero recommendations.
         
@@ -178,6 +187,9 @@ class MOBARecGCN(nn.Module):
             hero_features: Optional hero features tensor
             hero_meta: Optional hero metadata with lane info
             top_k: Number of recommendations
+            counter_data: Optional counter data
+            filter_lanes: If True, prioritize heroes that fill needed lanes
+            needed_lane: If set, override auto-detection and prioritize this lane (e.g. "Jungle", "EXP")
             counter_data: Optional counter data from hero_counters_openmlbb.json
             filter_lanes: If True, prioritize heroes that fill needed lanes
             
@@ -192,40 +204,42 @@ class MOBARecGCN(nn.Module):
         if self._adj_matrix is None:
             raise ValueError("Adjacency matrix not set. Call set_adjacency_matrix() first.")
         
-        # Load counter data if not provided
-        # Try corrected counter boost map first (has community overrides)
-        counter_boost_map = None
-        if counter_data is None:
-            boost_path = Path(__file__).parent.parent.parent / "training" / "data" / "api_data" / "counter_boost_map.json"
-            if boost_path.exists():
-                with open(boost_path) as f:
-                    counter_boost_map = json.load(f)
+        # Counter data disabled — waiting for correct mlbb.io counter pick data
+        counter_map = None
+        
+        # Load synergy data (heroes that work well with allies)
+        synergy_map = None
+        synergy_path = Path(__file__).parent.parent.parent / "training" / "data" / "api_data" / "mlbb_io_overviews.json"
+        if synergy_path.exists():
+            with open(synergy_path) as f:
+                synergy_map = json.load(f)
+        
+        # Build ally synergy boost: which heroes synergize with our picks
+        ally_names = current_draft.get("ally_picks", current_draft.get("friendly_picks", []))
+        ally_synergy_boost = {}
+        if synergy_map:
+            for ally in ally_names:
+                if ally in synergy_map:
+                    for syn_name in synergy_map[ally].get("synergies", []):
+                        # Don't boost heroes already picked
+                        if syn_name not in ally_synergy_boost:
+                            ally_synergy_boost[syn_name] = 0
+                        ally_synergy_boost[syn_name] += 0.10  # +10% per synergy match
         
         # Extract enemy picks for counter lookup
         enemy_names = current_draft.get("enemy_picks", [])
         
         # Build enemy counter boost map: hero_name -> boost_score
-        # counter_boost_map format: {hero_beating: {hero_losing: win_rate}}
-        # For enemy picks, we want heroes that beat them
+        # For each enemy hero, find ALL heroes that counter them
         enemy_counter_boost = {}
-        if counter_boost_map:
-            # Use corrected data: counter_boost_map[our_hero][enemy_hero] = win_rate
-            # We want to find heroes that beat each enemy
+        if counter_map:
             for enemy in enemy_names:
-                for our_hero, matchups in counter_boost_map.items():
-                    if enemy in matchups:
-                        win_rate = matchups[enemy]
-                        boost = max(0, win_rate - 0.5) * 2  # Scale to [0, 1]
-                        if our_hero not in enemy_counter_boost or boost > enemy_counter_boost[our_hero]:
-                            enemy_counter_boost[our_hero] = boost
-        elif counter_data is not None:
-            # Fallback to old counter_data format
-            for enemy in enemy_names:
-                if enemy in counter_data:
-                    for counter in counter_data[enemy].get("counters", []):
-                        counter_name = counter.get("name", "")
-                        win_rate = counter.get("win_rate", 0.5)
-                        boost = max(0, win_rate - 0.5) * 2
+                if enemy in counter_map:
+                    for counter in counter_map[enemy].get("counters", []):
+                        counter_name = counter["hero"]
+                        increase = counter.get("increase", 0.03)
+                        # Scale increase to [0, 1] range (typical increase is 0.01-0.07)
+                        boost = min(increase * 10, 1.0)
                         if counter_name not in enemy_counter_boost or boost > enemy_counter_boost[counter_name]:
                             enemy_counter_boost[counter_name] = boost
         
@@ -250,13 +264,22 @@ class MOBARecGCN(nn.Module):
         
         # Determine needed lanes based on current ally picks
         needed_lanes = set()
-        if filter_lanes and hero_meta:
+        if needed_lane:
+            # User explicitly told us which lane is needed — trust them
+            needed_lanes = {needed_lane}
+        elif filter_lanes and hero_meta:
             # Lanes in MLBB: EXP, Gold, Mid, Jungle, Roam
             all_lanes = {"EXP", "Gold", "Mid", "Jungle", "Roam"}
             used_lanes = set()
+            # hero_meta can be a list of dicts or a dict of dicts
+            meta_dict = {}
+            if isinstance(hero_meta, list):
+                meta_dict = {h["name"]: h for h in hero_meta}
+            else:
+                meta_dict = hero_meta
             for name in friendly_names:
-                if name in hero_meta:
-                    primary_lane = hero_meta[name].get("primary_lane", "")
+                if name in meta_dict:
+                    primary_lane = meta_dict[name].get("primary_lane", "")
                     if primary_lane:
                         used_lanes.add(primary_lane)
             needed_lanes = all_lanes - used_lanes
@@ -282,18 +305,53 @@ class MOBARecGCN(nn.Module):
             
             with torch.no_grad():
                 pred = self.forward(test_friendly, enemy_tensor, hero_features)
-                base_score = pred.item()
+                gcn_score = pred.item()
             
-            # Apply counter boost (max +15% to GCN score)
+            # Hero meta strength (win rate, pick rate, ban rate from features)
+            hero_id = hero_name_to_id.get(hero_name, -1)
+            meta_score = 0.5
+            if hero_features is not None and 0 <= hero_id < hero_features.shape[0]:
+                feats = hero_features[hero_id]
+                # Features: [win_rate, pick_rate, ban_rate, meta_score, trend, ...]
+                meta_score = feats[0].item() * 0.5 + feats[1].item() * 0.2 + feats[2].item() * 0.1 + feats[3].item() * 0.2
+            
+            # Counter boost (draft-specific signal)
             counter_boost = enemy_counter_boost.get(hero_name, 0)
-            boosted_score = min(base_score + counter_boost * 0.15, 1.0)
             
-            # Lane bonus: +20% if hero fills a needed lane
+            # Synergy boost (team-specific signal)
+            synergy_boost = min(ally_synergy_boost.get(hero_name, 0), 0.20)
+            
+            # Lane check: can this hero fill the needed lane?
+            meta_for_lane = hero_meta
+            if isinstance(meta_for_lane, list):
+                meta_for_lane = {h["name"]: h for h in meta_for_lane} if meta_for_lane else {}
+            hero_lane = meta_for_lane.get(hero_name, {}).get("primary_lane", "") if meta_for_lane else ""
+            hero_all_lanes = meta_for_lane.get(hero_name, {}).get("lanes", [hero_lane]) if meta_for_lane else []
+            needed_key = needed_lane.replace(" Lane", "") if needed_lane else None
+            fills_lane = (needed_key and needed_key in hero_all_lanes) or (hero_lane in needed_lanes) if needed_lane else True
+            
+            # Scoring: meta is the base, counter/synergy are multipliers
+            # Only give counter/synergy boost if hero fills the needed lane
+            base_score = meta_score * 0.6 + gcn_score * 0.4
+            if fills_lane and counter_boost > 0:
+                base_score = base_score * (1.0 + counter_boost * 3.0)  # Up to +150% boost
+            if fills_lane and synergy_boost > 0:
+                base_score = base_score * (1.0 + synergy_boost * 2.0)  # Up to +40% boost
+            
+            boosted_score = min(base_score, 1.0)
+            
+            # Lane bonus: +20% auto-detected, +40% if user explicitly said this lane
             lane_bonus = 0
-            if filter_lanes and hero_meta and hero_name in hero_meta:
-                hero_lane = hero_meta[hero_name].get("primary_lane", "")
-                if hero_lane in needed_lanes:
-                    lane_bonus = 0.20
+            if filter_lanes and hero_meta:
+                meta_dict = hero_meta if isinstance(hero_meta, dict) else {h["name"]: h for h in hero_meta}
+                if hero_name in meta_dict:
+                    hero_lane = meta_dict[hero_name].get("primary_lane", "")
+                    # Also check all possible lanes for this hero
+                    hero_all_lanes = meta_dict[hero_name].get("lanes", [hero_lane])
+                    # Normalize needed_lane: "EXP Lane" -> "EXP", "Jungle" stays "Jungle"
+                    needed_key = needed_lane.replace(" Lane", "") if needed_lane else None
+                    if hero_lane in needed_lanes or (needed_key and needed_key in hero_all_lanes):
+                        lane_bonus = 0.40 if needed_lane else 0.20
             
             final_score = min(boosted_score + lane_bonus, 1.0)
             scores.append((hero_name, final_score))
