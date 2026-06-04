@@ -17,7 +17,7 @@ LANE_DATA = {
     "Franco":        ["Roam"],
     "Gatotkaca":     ["EXP", "Roam"],
     "Gloo":          ["EXP", "Roam"],
-    "Grohk":         ["Roam"],
+    "Grock":         ["Roam"],
     "Hylos":         ["EXP", "Roam"],
     "Khufra":        ["Roam"],
     "Johnson":       ["Roam", "Jungle"],
@@ -25,7 +25,7 @@ LANE_DATA = {
     "Phoveus":       ["EXP"],
     "Tigreal":       ["Roam"],
     "Uranus":        ["EXP", "Roam"],
-    "Khaleed":       ["EXP"],
+    "Khaleed":       ["EXP", "Roam"],
 
     # === FIGHTERS ===
     "Alpha":         ["Jungle", "EXP"],
@@ -75,7 +75,7 @@ LANE_DATA = {
     "Lancelot":      ["Jungle"],
     "Yi Sun-shin":   ["Jungle"],
     "Suyou":         ["Jungle"],
-    "Sora":          ["EXP", "Jungle"],
+    "Sora":          ["EXP", "Jungle", "gold"],
 
     # === MAGES ===
     "Alice":         ["EXP", "Mid"],
@@ -102,7 +102,7 @@ LANE_DATA = {
     "Xavier":        ["Mid"],
     "Yve":           ["Mid"],
     "Zhask":         ["Mid"],
-    "Melissa":       ["Mid"],
+    "Melissa":       ["gold"],
     "Zhuxin":        ["Mid"],
     "Zetian":        ["Mid"],
     "Kalea":         ["Roam", "Mid"],
