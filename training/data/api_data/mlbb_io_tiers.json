@@ -1,0 +1,2046 @@
+{
+  "Gloo": {
+    "hero_id": 104,
+    "tier": "SS",
+    "score": 1205.07,
+    "role": [
+      "Tank"
+    ],
+    "lane": [
+      "Roam",
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Regen",
+      "Control"
+    ]
+  },
+  "Harley": {
+    "hero_id": 42,
+    "tier": "SS",
+    "score": 1170.4,
+    "role": [
+      "Assassin",
+      "Mage"
+    ],
+    "lane": [
+      "Jungle",
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Poke"
+    ]
+  },
+  "Suyou": {
+    "hero_id": 126,
+    "tier": "SS",
+    "score": 846.613,
+    "role": [
+      "Assassin",
+      "Fighter"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Chase",
+      "Burst"
+    ]
+  },
+  "Sun": {
+    "hero_id": 27,
+    "tier": "SS",
+    "score": 765.464,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane",
+      "Jungle"
+    ],
+    "speciality": [
+      "Push",
+      "Damage"
+    ]
+  },
+  "Sora": {
+    "hero_id": 131,
+    "tier": "SS",
+    "score": 759.341,
+    "role": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Charge",
+      "Burst"
+    ]
+  },
+  "Marcel": {
+    "hero_id": 132,
+    "tier": "SS",
+    "score": 747.254,
+    "role": [
+      "Support"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Crowd Control",
+      "Support"
+    ]
+  },
+  "Guinevere": {
+    "hero_id": 80,
+    "tier": "SS",
+    "score": 717.687,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Magic Damage"
+    ]
+  },
+  "Paquito": {
+    "hero_id": 103,
+    "tier": "S",
+    "score": 546.67,
+    "role": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Chase",
+      "Damage"
+    ]
+  },
+  "Helcurt": {
+    "hero_id": 51,
+    "tier": "S",
+    "score": 535.48,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle",
+      "Roam"
+    ],
+    "speciality": [
+      "Push",
+      "Burst"
+    ]
+  },
+  "Zhuxin": {
+    "hero_id": 125,
+    "tier": "S",
+    "score": 511.595,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Damage",
+      "Crowd Control"
+    ]
+  },
+  "Zetian": {
+    "hero_id": 129,
+    "tier": "S",
+    "score": 504.46,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Damage",
+      "Crowd Control"
+    ]
+  },
+  "Minsitthar": {
+    "hero_id": 74,
+    "tier": "S",
+    "score": 500.204,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane",
+      "Roam"
+    ],
+    "speciality": [
+      "Initiator",
+      "Crowd Control"
+    ]
+  },
+  "Hilda": {
+    "hero_id": 35,
+    "tier": "S",
+    "score": 457.172,
+    "role": [
+      "Fighter",
+      "Tank"
+    ],
+    "lane": [
+      "Roam",
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Damage",
+      "Regen"
+    ]
+  },
+  "Freya": {
+    "hero_id": 22,
+    "tier": "S",
+    "score": 422.377,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane",
+      "Jungle"
+    ],
+    "speciality": [
+      "Chase",
+      "Damage"
+    ]
+  },
+  "Leomord": {
+    "hero_id": 67,
+    "tier": "S",
+    "score": 418.354,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Chase",
+      "Burst"
+    ]
+  },
+  "Estes": {
+    "hero_id": 34,
+    "tier": "S",
+    "score": 393.43,
+    "role": [
+      "Support"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Regen",
+      "Guard"
+    ]
+  },
+  "Floryn": {
+    "hero_id": 112,
+    "tier": "A",
+    "score": 360.751,
+    "role": [
+      "Support"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Poke",
+      "Guard"
+    ]
+  },
+  "Yi Sun-shin": {
+    "hero_id": 30,
+    "tier": "A",
+    "score": 328.619,
+    "role": [
+      "Assassin",
+      "Marksman"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Finisher",
+      "Chase"
+    ]
+  },
+  "Saber": {
+    "hero_id": 3,
+    "tier": "A",
+    "score": 313.11,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle",
+      "Roam"
+    ],
+    "speciality": [
+      "Charge",
+      "Finisher"
+    ]
+  },
+  "Gusion": {
+    "hero_id": 56,
+    "tier": "A",
+    "score": 300.53,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle",
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Magic Damage"
+    ]
+  },
+  "Kaja": {
+    "hero_id": 62,
+    "tier": "A",
+    "score": 291.993,
+    "role": [
+      "Support",
+      "Fighter"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Control",
+      "Charge"
+    ]
+  },
+  "Kadita": {
+    "hero_id": 75,
+    "tier": "A",
+    "score": 290.715,
+    "role": [
+      "Mage",
+      "Assassin"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Charge"
+    ]
+  },
+  "Fredrinn": {
+    "hero_id": 117,
+    "tier": "A",
+    "score": 284.64,
+    "role": [
+      "Fighter",
+      "Tank"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Damage",
+      "Chase"
+    ]
+  },
+  "Hanabi": {
+    "hero_id": 60,
+    "tier": "A",
+    "score": 279.373,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Damage"
+    ]
+  },
+  "Belerick": {
+    "hero_id": 70,
+    "tier": "B",
+    "score": 262.673,
+    "role": [
+      "Tank"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Crowd Control",
+      "Regen"
+    ]
+  },
+  "Alice": {
+    "hero_id": 4,
+    "tier": "B",
+    "score": 259.172,
+    "role": [
+      "Tank",
+      "Mage"
+    ],
+    "lane": [
+      "Exp Lane",
+      "Jungle"
+    ],
+    "speciality": [
+      "Charge",
+      "Regen"
+    ]
+  },
+  "Lesley": {
+    "hero_id": 53,
+    "tier": "B",
+    "score": 253.513,
+    "role": [
+      "Marksman",
+      "Assassin"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Burst"
+    ]
+  },
+  "Diggie": {
+    "hero_id": 48,
+    "tier": "B",
+    "score": 247.19,
+    "role": [
+      "Support"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Guard",
+      "Poke"
+    ]
+  },
+  "Angela": {
+    "hero_id": 55,
+    "tier": "B",
+    "score": 240.069,
+    "role": [
+      "Support"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Guard",
+      "Support"
+    ]
+  },
+  "Harith": {
+    "hero_id": 73,
+    "tier": "B",
+    "score": 234.066,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Gold Lane",
+      "Jungle"
+    ],
+    "speciality": [
+      "Chase",
+      "Damage"
+    ]
+  },
+  "Karrie": {
+    "hero_id": 40,
+    "tier": "B",
+    "score": 225.234,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Damage"
+    ]
+  },
+  "Gord": {
+    "hero_id": 23,
+    "tier": "B",
+    "score": 222.239,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Poke",
+      "Burst"
+    ]
+  },
+  "Miya": {
+    "hero_id": 1,
+    "tier": "B",
+    "score": 220.959,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Damage"
+    ]
+  },
+  "Phoveus": {
+    "hero_id": 106,
+    "tier": "B",
+    "score": 216.857,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Regen",
+      "Damage"
+    ]
+  },
+  "Tigreal": {
+    "hero_id": 6,
+    "tier": "B",
+    "score": 212.374,
+    "role": [
+      "Tank"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Crowd Control"
+    ]
+  },
+  "Aamon": {
+    "hero_id": 109,
+    "tier": "B",
+    "score": 211.209,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Chase",
+      "Magic Damage"
+    ]
+  },
+  "Franco": {
+    "hero_id": 10,
+    "tier": "C",
+    "score": 199.037,
+    "role": [
+      "Tank"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Initiator",
+      "Control"
+    ]
+  },
+  "Selena": {
+    "hero_id": 63,
+    "tier": "C",
+    "score": 191.95,
+    "role": [
+      "Assassin",
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane",
+      "Roam"
+    ],
+    "speciality": [
+      "Initiator",
+      "Finisher"
+    ]
+  },
+  "Valir": {
+    "hero_id": 57,
+    "tier": "C",
+    "score": 190.905,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Damage",
+      "Guard"
+    ]
+  },
+  "Grock": {
+    "hero_id": 44,
+    "tier": "C",
+    "score": 190.381,
+    "role": [
+      "Tank",
+      "Fighter"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Crowd Control",
+      "Initiator"
+    ]
+  },
+  "Minotaur": {
+    "hero_id": 19,
+    "tier": "C",
+    "score": 188.413,
+    "role": [
+      "Tank",
+      "Support"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Crowd Control"
+    ]
+  },
+  "Silvanna": {
+    "hero_id": 90,
+    "tier": "C",
+    "score": 185.928,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Initiator",
+      "Magic Damage"
+    ]
+  },
+  "Hayabusa": {
+    "hero_id": 21,
+    "tier": "C",
+    "score": 179.291,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Chase",
+      "Burst"
+    ]
+  },
+  "X.Borg": {
+    "hero_id": 83,
+    "tier": "C",
+    "score": 178.569,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Regen",
+      "Burst"
+    ]
+  },
+  "Obsidia": {
+    "hero_id": 130,
+    "tier": "C",
+    "score": 177.94,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Damage"
+    ]
+  },
+  "Julian": {
+    "hero_id": 116,
+    "tier": "C",
+    "score": 177.771,
+    "role": [
+      "Assassin",
+      "Fighter"
+    ],
+    "lane": [
+      "Jungle",
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Chase",
+      "Magic Damage"
+    ]
+  },
+  "Badang": {
+    "hero_id": 77,
+    "tier": "C",
+    "score": 177.037,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Roam",
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Charge",
+      "Burst"
+    ]
+  },
+  "Khufra": {
+    "hero_id": 78,
+    "tier": "C",
+    "score": 176.865,
+    "role": [
+      "Tank"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Initiator",
+      "Crowd Control"
+    ]
+  },
+  "Masha": {
+    "hero_id": 88,
+    "tier": "C",
+    "score": 176.452,
+    "role": [
+      "Fighter",
+      "Tank"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Push",
+      "Damage"
+    ]
+  },
+  "Akai": {
+    "hero_id": 9,
+    "tier": "C",
+    "score": 176.277,
+    "role": [
+      "Tank"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Guard",
+      "Crowd Control"
+    ]
+  },
+  "Hanzo": {
+    "hero_id": 69,
+    "tier": "C",
+    "score": 175.777,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Poke",
+      "Burst"
+    ]
+  },
+  "Thamuz": {
+    "hero_id": 72,
+    "tier": "C",
+    "score": 175.257,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Chase",
+      "Damage"
+    ]
+  },
+  "Beatrix": {
+    "hero_id": 105,
+    "tier": "C",
+    "score": 173.634,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Damage"
+    ]
+  },
+  "Yu Zhong": {
+    "hero_id": 95,
+    "tier": "C",
+    "score": 172.971,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Regen",
+      "Damage"
+    ]
+  },
+  "Khaleed": {
+    "hero_id": 98,
+    "tier": "C",
+    "score": 171.867,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Roam",
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Damage",
+      "Regen"
+    ]
+  },
+  "Atlas": {
+    "hero_id": 93,
+    "tier": "C",
+    "score": 171.839,
+    "role": [
+      "Tank"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Crowd Control",
+      "Initiator"
+    ]
+  },
+  "Vexana": {
+    "hero_id": 38,
+    "tier": "C",
+    "score": 170.019,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Poke",
+      "Control"
+    ]
+  },
+  "Ixia": {
+    "hero_id": 121,
+    "tier": "C",
+    "score": 169.66,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Damage"
+    ]
+  },
+  "Natalia": {
+    "hero_id": 24,
+    "tier": "C",
+    "score": 168.789,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle",
+      "Roam"
+    ],
+    "speciality": [
+      "Chase",
+      "Finisher"
+    ]
+  },
+  "Benedetta": {
+    "hero_id": 97,
+    "tier": "C",
+    "score": 168.733,
+    "role": [
+      "Assassin",
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Chase",
+      "Burst"
+    ]
+  },
+  "Chou": {
+    "hero_id": 26,
+    "tier": "C",
+    "score": 168.728,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane",
+      "Roam"
+    ],
+    "speciality": [
+      "Chase",
+      "Control"
+    ]
+  },
+  "Lolita": {
+    "hero_id": 20,
+    "tier": "C",
+    "score": 168.336,
+    "role": [
+      "Support",
+      "Tank"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Guard",
+      "Crowd Control"
+    ]
+  },
+  "Johnson": {
+    "hero_id": 32,
+    "tier": "C",
+    "score": 167.375,
+    "role": [
+      "Tank",
+      "Support"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Support",
+      "Crowd Control"
+    ]
+  },
+  "Nana": {
+    "hero_id": 5,
+    "tier": "C",
+    "score": 167.309,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Poke",
+      "Burst"
+    ]
+  },
+  "Melissa": {
+    "hero_id": 114,
+    "tier": "C",
+    "score": 166.936,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Damage"
+    ]
+  },
+  "Aulus": {
+    "hero_id": 108,
+    "tier": "C",
+    "score": 166.876,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Damage",
+      "Charge"
+    ]
+  },
+  "Clint": {
+    "hero_id": 13,
+    "tier": "C",
+    "score": 166.07,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Burst"
+    ]
+  },
+  "Rafaela": {
+    "hero_id": 14,
+    "tier": "C",
+    "score": 165.824,
+    "role": [
+      "Support"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Regen",
+      "Guard"
+    ]
+  },
+  "Terizla": {
+    "hero_id": 82,
+    "tier": "C",
+    "score": 165.414,
+    "role": [
+      "Fighter",
+      "Tank"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Crowd Control"
+    ]
+  },
+  "Baxia": {
+    "hero_id": 87,
+    "tier": "C",
+    "score": 165.274,
+    "role": [
+      "Tank"
+    ],
+    "lane": [
+      "Jungle",
+      "Roam"
+    ],
+    "speciality": [
+      "Support",
+      "Damage"
+    ]
+  },
+  "Odette": {
+    "hero_id": 46,
+    "tier": "C",
+    "score": 165.077,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Poke"
+    ]
+  },
+  "Fanny": {
+    "hero_id": 17,
+    "tier": "C",
+    "score": 164.967,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Chase",
+      "Finisher"
+    ]
+  },
+  "Eudora": {
+    "hero_id": 15,
+    "tier": "C",
+    "score": 163.743,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Control",
+      "Burst"
+    ]
+  },
+  "Kagura": {
+    "hero_id": 25,
+    "tier": "C",
+    "score": 163.521,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Poke",
+      "Finisher"
+    ]
+  },
+  "Lukas": {
+    "hero_id": 127,
+    "tier": "C",
+    "score": 163.268,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane",
+      "Jungle"
+    ],
+    "speciality": [
+      "Regen",
+      "Damage"
+    ]
+  },
+  "Novaria": {
+    "hero_id": 119,
+    "tier": "C",
+    "score": 163.135,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Poke"
+    ]
+  },
+  "Uranus": {
+    "hero_id": 59,
+    "tier": "C",
+    "score": 162.816,
+    "role": [
+      "Tank"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Regen"
+    ]
+  },
+  "Claude": {
+    "hero_id": 65,
+    "tier": "C",
+    "score": 162.363,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Chase"
+    ]
+  },
+  "Moskov": {
+    "hero_id": 31,
+    "tier": "C",
+    "score": 162.245,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Chase"
+    ]
+  },
+  "Carmilla": {
+    "hero_id": 92,
+    "tier": "C",
+    "score": 161.708,
+    "role": [
+      "Support",
+      "Tank"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Crowd Control",
+      "Damage"
+    ]
+  },
+  "Argus": {
+    "hero_id": 45,
+    "tier": "C",
+    "score": 161.698,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Charge",
+      "Burst"
+    ]
+  },
+  "Cyclops": {
+    "hero_id": 33,
+    "tier": "C",
+    "score": 161.053,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Damage",
+      "Control"
+    ]
+  },
+  "Irithel": {
+    "hero_id": 43,
+    "tier": "C",
+    "score": 160.586,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Burst"
+    ]
+  },
+  "Brody": {
+    "hero_id": 100,
+    "tier": "C",
+    "score": 160.438,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Finisher"
+    ]
+  },
+  "Popol and Kupa": {
+    "hero_id": 94,
+    "tier": "D",
+    "score": 160.093,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Jungle",
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Push",
+      "Burst"
+    ]
+  },
+  "Zhask": {
+    "hero_id": 50,
+    "tier": "D",
+    "score": 158.107,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Chase",
+      "Damage"
+    ]
+  },
+  "Ruby": {
+    "hero_id": 29,
+    "tier": "D",
+    "score": 157.712,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Crowd Control",
+      "Regen"
+    ]
+  },
+  "Natan": {
+    "hero_id": 107,
+    "tier": "D",
+    "score": 157.327,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Magic Damage"
+    ]
+  },
+  "Yin": {
+    "hero_id": 113,
+    "tier": "D",
+    "score": 157.13,
+    "role": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle",
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Control"
+    ]
+  },
+  "Granger": {
+    "hero_id": 79,
+    "tier": "D",
+    "score": 156.726,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Finisher"
+    ]
+  },
+  "Bane": {
+    "hero_id": 11,
+    "tier": "D",
+    "score": 156.361,
+    "role": [
+      "Fighter",
+      "Mage"
+    ],
+    "lane": [
+      "Jungle",
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Push",
+      "Burst"
+    ]
+  },
+  "Alucard": {
+    "hero_id": 7,
+    "tier": "D",
+    "score": 156.327,
+    "role": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Chase",
+      "Damage"
+    ]
+  },
+  "Kalea": {
+    "hero_id": 128,
+    "tier": "D",
+    "score": 155.544,
+    "role": [
+      "Support",
+      "Fighter"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Control",
+      "Regen"
+    ]
+  },
+  "Faramis": {
+    "hero_id": 76,
+    "tier": "D",
+    "score": 155.434,
+    "role": [
+      "Support",
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane",
+      "Roam"
+    ],
+    "speciality": [
+      "Guard",
+      "Charge"
+    ]
+  },
+  "Yve": {
+    "hero_id": 101,
+    "tier": "D",
+    "score": 155.204,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Poke",
+      "Burst"
+    ]
+  },
+  "Layla": {
+    "hero_id": 18,
+    "tier": "D",
+    "score": 154.597,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Damage"
+    ]
+  },
+  "Chip": {
+    "hero_id": 124,
+    "tier": "D",
+    "score": 154.534,
+    "role": [
+      "Support",
+      "Tank"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Support",
+      "Crowd Control"
+    ]
+  },
+  "Vale": {
+    "hero_id": 66,
+    "tier": "D",
+    "score": 154.271,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Crowd Control"
+    ]
+  },
+  "Aldous": {
+    "hero_id": 64,
+    "tier": "D",
+    "score": 153.747,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Support"
+    ]
+  },
+  "Dyrroth": {
+    "hero_id": 85,
+    "tier": "D",
+    "score": 153.715,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane",
+      "Jungle"
+    ],
+    "speciality": [
+      "Charge",
+      "Burst"
+    ]
+  },
+  "Edith": {
+    "hero_id": 111,
+    "tier": "D",
+    "score": 153.681,
+    "role": [
+      "Tank",
+      "Marksman"
+    ],
+    "lane": [
+      "Exp Lane",
+      "Roam"
+    ],
+    "speciality": [
+      "Control",
+      "Burst"
+    ]
+  },
+  "Lylia": {
+    "hero_id": 86,
+    "tier": "D",
+    "score": 153.36,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Push",
+      "Damage"
+    ]
+  },
+  "Joy": {
+    "hero_id": 118,
+    "tier": "D",
+    "score": 153.201,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Chase",
+      "Damage"
+    ]
+  },
+  "Lapu-Lapu": {
+    "hero_id": 37,
+    "tier": "D",
+    "score": 153.136,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Chase",
+      "Burst"
+    ]
+  },
+  "Kimmy": {
+    "hero_id": 71,
+    "tier": "D",
+    "score": 153.085,
+    "role": [
+      "Marksman",
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane",
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Damage",
+      "Magic Damage"
+    ]
+  },
+  "Arlott": {
+    "hero_id": 120,
+    "tier": "D",
+    "score": 152.882,
+    "role": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Charge",
+      "Burst"
+    ]
+  },
+  "Cecilion": {
+    "hero_id": 91,
+    "tier": "D",
+    "score": 152.018,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Poke",
+      "Burst"
+    ]
+  },
+  "Karina": {
+    "hero_id": 8,
+    "tier": "D",
+    "score": 151.607,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Finisher",
+      "Magic Damage"
+    ]
+  },
+  "Chang'e": {
+    "hero_id": 61,
+    "tier": "D",
+    "score": 150.636,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Poke",
+      "Burst"
+    ]
+  },
+  "Hylos": {
+    "hero_id": 49,
+    "tier": "D",
+    "score": 149.98,
+    "role": [
+      "Tank"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Guard",
+      "Initiator"
+    ]
+  },
+  "Cici": {
+    "hero_id": 123,
+    "tier": "D",
+    "score": 149.831,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Damage",
+      "Regen"
+    ]
+  },
+  "Barats": {
+    "hero_id": 99,
+    "tier": "D",
+    "score": 149.67,
+    "role": [
+      "Tank",
+      "Fighter"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Damage",
+      "Crowd Control"
+    ]
+  },
+  "Xavier": {
+    "hero_id": 115,
+    "tier": "D",
+    "score": 149.029,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Damage",
+      "Burst"
+    ]
+  },
+  "Lunox": {
+    "hero_id": 68,
+    "tier": "D",
+    "score": 148.685,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Damage"
+    ]
+  },
+  "Jawhead": {
+    "hero_id": 54,
+    "tier": "D",
+    "score": 147.823,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Roam",
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Charge",
+      "Burst"
+    ]
+  },
+  "Wanwan": {
+    "hero_id": 89,
+    "tier": "D",
+    "score": 147.555,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Burst"
+    ]
+  },
+  "Martis": {
+    "hero_id": 58,
+    "tier": "D",
+    "score": 147.225,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Jungle",
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Charge"
+    ]
+  },
+  "Nolan": {
+    "hero_id": 122,
+    "tier": "D",
+    "score": 147.056,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Chase",
+      "Burst"
+    ]
+  },
+  "Zilong": {
+    "hero_id": 16,
+    "tier": "D",
+    "score": 146.922,
+    "role": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Chase",
+      "Damage"
+    ]
+  },
+  "Pharsa": {
+    "hero_id": 52,
+    "tier": "D",
+    "score": 146.641,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Poke"
+    ]
+  },
+  "Bruno": {
+    "hero_id": 12,
+    "tier": "D",
+    "score": 145.84,
+    "role": [
+      "Marksman"
+    ],
+    "lane": [
+      "Gold Lane"
+    ],
+    "speciality": [
+      "Finisher",
+      "Burst"
+    ]
+  },
+  "Roger": {
+    "hero_id": 39,
+    "tier": "D",
+    "score": 145.581,
+    "role": [
+      "Fighter",
+      "Marksman"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Finisher",
+      "Burst"
+    ]
+  },
+  "Aurora": {
+    "hero_id": 36,
+    "tier": "D",
+    "score": 144.679,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Crowd Control",
+      "Poke"
+    ]
+  },
+  "Gatotkaca": {
+    "hero_id": 41,
+    "tier": "D",
+    "score": 143.986,
+    "role": [
+      "Tank",
+      "Fighter"
+    ],
+    "lane": [
+      "Roam",
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Crowd Control",
+      "Burst"
+    ]
+  },
+  "Alpha": {
+    "hero_id": 28,
+    "tier": "D",
+    "score": 142.1,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Jungle",
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Charge",
+      "Damage"
+    ]
+  },
+  "Luo Yi": {
+    "hero_id": 96,
+    "tier": "D",
+    "score": 139.56,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Support",
+      "Crowd Control"
+    ]
+  },
+  "Lancelot": {
+    "hero_id": 47,
+    "tier": "D",
+    "score": 138.473,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Chase",
+      "Burst"
+    ]
+  },
+  "Ling": {
+    "hero_id": 84,
+    "tier": "D",
+    "score": 136.404,
+    "role": [
+      "Assassin"
+    ],
+    "lane": [
+      "Jungle"
+    ],
+    "speciality": [
+      "Chase",
+      "Burst"
+    ]
+  },
+  "Esmeralda": {
+    "hero_id": 81,
+    "tier": "D",
+    "score": 135.884,
+    "role": [
+      "Tank",
+      "Mage"
+    ],
+    "lane": [
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Regen",
+      "Mixed Damage"
+    ]
+  },
+  "Valentina": {
+    "hero_id": 110,
+    "tier": "D",
+    "score": 134.878,
+    "role": [
+      "Mage"
+    ],
+    "lane": [
+      "Mid Lane"
+    ],
+    "speciality": [
+      "Burst",
+      "Finisher"
+    ]
+  },
+  "Mathilda": {
+    "hero_id": 102,
+    "tier": "D",
+    "score": 132.483,
+    "role": [
+      "Support",
+      "Assassin"
+    ],
+    "lane": [
+      "Roam"
+    ],
+    "speciality": [
+      "Initiator",
+      "Guard"
+    ]
+  },
+  "Balmond": {
+    "hero_id": 2,
+    "tier": "D",
+    "score": 127.524,
+    "role": [
+      "Fighter"
+    ],
+    "lane": [
+      "Jungle",
+      "Exp Lane"
+    ],
+    "speciality": [
+      "Damage",
+      "Regen"
+    ]
+  }
+}

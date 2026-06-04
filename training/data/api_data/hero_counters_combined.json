@@ -1,0 +1,1739 @@
+{
+  "Harley": {
+    "source": "mlbb.io",
+    "counters": [
+      "Sun",
+      "Lolita",
+      "Popol and Kupa",
+      "Natalia",
+      "Chip",
+      "Roger",
+      "Saber",
+      "Eudora"
+    ],
+    "weak_against": [
+      "Hanzo",
+      "Melissa",
+      "Suyou",
+      "Gord",
+      "Kimmy",
+      "Valir"
+    ],
+    "synergies": [
+      "Valentina",
+      "Sora",
+      "Lylia",
+      "Zhask",
+      "Marcel",
+      "Yve",
+      "Chang'e",
+      "Zetian",
+      "Zhuxin",
+      "Lunox"
+    ]
+  },
+  "Suyou": {
+    "source": "mlbb.io",
+    "counters": [
+      "Gusion",
+      "Silvanna",
+      "Harley",
+      "Harith",
+      "Odette",
+      "Cyclops",
+      "Natan",
+      "Joy",
+      "Faramis",
+      "Obsidia"
+    ],
+    "weak_against": [],
+    "synergies": [
+      "Marcel",
+      "Esmeralda",
+      "Valentina",
+      "Uranus",
+      "Yve",
+      "Sora",
+      "Diggie",
+      "Floryn",
+      "Phoveus",
+      "Lapu-Lapu"
+    ]
+  },
+  "Sun": {
+    "source": "mlbb.io",
+    "counters": [
+      "Aldous",
+      "Natan",
+      "Ruby",
+      "Alucard",
+      "Joy",
+      "Faramis",
+      "Silvanna"
+    ],
+    "weak_against": [
+      "Masha",
+      "Cici",
+      "Jawhead",
+      "Hanzo",
+      "Karrie",
+      "Diggie",
+      "Lesley",
+      "Popol and Kupa",
+      "Harley",
+      "Layla"
+    ],
+    "synergies": [
+      "X.Borg",
+      "Gloo",
+      "Saber",
+      "Barats",
+      "Lapu-Lapu",
+      "Cici",
+      "Yu Zhong",
+      "Phoveus",
+      "Faramis",
+      "Hilda"
+    ]
+  },
+  "Sora": {
+    "source": "mlbb.io",
+    "counters": [
+      "Phoveus",
+      "Melissa",
+      "Lukas",
+      "Martis",
+      "Khufra",
+      "Mathilda",
+      "Xavier",
+      "Chip",
+      "Uranus",
+      "Nolan"
+    ],
+    "weak_against": [
+      "Paquito",
+      "Estes",
+      "Rafaela",
+      "Bane",
+      "Lapu-Lapu",
+      "Beatrix",
+      "Ruby",
+      "Aulus",
+      "Yi Sun-shin"
+    ],
+    "synergies": [
+      "Harley",
+      "Floryn",
+      "Estes",
+      "Diggie",
+      "Mathilda",
+      "Angela",
+      "Bane",
+      "Aulus",
+      "Chip",
+      "Joy"
+    ]
+  },
+  "Marcel": {
+    "source": "mlbb.io",
+    "counters": [
+      "Angela",
+      "Floryn",
+      "Lesley",
+      "Aamon",
+      "Cyclops",
+      "Odette",
+      "Masha",
+      "Ling",
+      "Kaja",
+      "Chip"
+    ],
+    "weak_against": [
+      "Atlas",
+      "Paquito",
+      "Belerick",
+      "Khufra",
+      "Akai",
+      "Baxia",
+      "Zhuxin",
+      "Chip"
+    ],
+    "synergies": [
+      "Xavier",
+      "Valentina",
+      "Harley",
+      "Saber",
+      "Paquito",
+      "Granger",
+      "Arlott",
+      "Luo Yi",
+      "Melissa",
+      "Edith"
+    ]
+  },
+  "Guinevere": {
+    "source": "mlbb.io",
+    "counters": [
+      "Wanwan",
+      "Masha",
+      "Khufra",
+      "Fanny",
+      "Diggie",
+      "Argus",
+      "Joy",
+      "Lolita",
+      "Marcel",
+      "Kaja"
+    ],
+    "weak_against": [
+      "Julian",
+      "Lunox",
+      "Lylia",
+      "Dyrroth"
+    ],
+    "synergies": [
+      "Aulus",
+      "Marcel",
+      "Balmond",
+      "Minotaur",
+      "Sun",
+      "Valentina",
+      "Mathilda",
+      "Lukas"
+    ]
+  },
+  "Paquito": {
+    "source": "mlbb.io",
+    "counters": [
+      "Sora",
+      "Marcel",
+      "Esmeralda",
+      "Phoveus",
+      "Khufra",
+      "Masha",
+      "Terizla",
+      "Melissa"
+    ],
+    "weak_against": [
+      "Natalia",
+      "Yu Zhong",
+      "Karina",
+      "Cici",
+      "Nolan",
+      "Lylia",
+      "X.Borg"
+    ],
+    "synergies": [
+      "Marcel",
+      "Bane",
+      "Baxia",
+      "Belerick",
+      "Balmond",
+      "Sun",
+      "Faramis",
+      "Joy",
+      "Diggie",
+      "Khaleed"
+    ]
+  },
+  "Obsidia": {
+    "source": "openmlbb",
+    "counters": [
+      "Helcurt",
+      "Natalia",
+      "Aldous",
+      "Benedetta",
+      "Hanzo"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Zetian": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Natalia",
+      "Tigreal",
+      "Popol and Kupa",
+      "Helcurt"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Kalea": {
+    "source": "openmlbb",
+    "counters": [
+      "Yve",
+      "Fanny",
+      "Nolan",
+      "Masha",
+      "Khaleed"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Lukas": {
+    "source": "openmlbb",
+    "counters": [
+      "Wanwan",
+      "Sora",
+      "Fanny",
+      "Sun",
+      "Selena"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Zhuxin": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Barats",
+      "Khufra",
+      "Gloo",
+      "Johnson"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Chip": {
+    "source": "openmlbb",
+    "counters": [
+      "Joy",
+      "Harley",
+      "Kagura",
+      "Bruno",
+      "Selena"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Cici": {
+    "source": "openmlbb",
+    "counters": [
+      "Thamuz",
+      "Hylos",
+      "Alice",
+      "Balmond",
+      "Beatrix"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Nolan": {
+    "source": "openmlbb",
+    "counters": [
+      "Estes",
+      "Yve",
+      "Rafaela",
+      "Popol and Kupa",
+      "Floryn"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Ixia": {
+    "source": "openmlbb",
+    "counters": [
+      "Estes",
+      "Floryn",
+      "Hanabi",
+      "Yve",
+      "Rafaela"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Arlott": {
+    "source": "openmlbb",
+    "counters": [
+      "Esmeralda",
+      "Natan",
+      "Cici",
+      "Khufra",
+      "Nolan"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Novaria": {
+    "source": "openmlbb",
+    "counters": [
+      "Valir",
+      "Marcel",
+      "Luo Yi",
+      "Alpha",
+      "Hanabi"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Joy": {
+    "source": "openmlbb",
+    "counters": [
+      "Yve",
+      "Sun",
+      "X.Borg",
+      "Guinevere",
+      "Hanabi"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Fredrinn": {
+    "source": "openmlbb",
+    "counters": [
+      "Gloo",
+      "Argus",
+      "Ling",
+      "Alucard",
+      "Eudora"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Julian": {
+    "source": "openmlbb",
+    "counters": [
+      "Faramis",
+      "Esmeralda",
+      "Sun",
+      "Valentina",
+      "X.Borg"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Xavier": {
+    "source": "openmlbb",
+    "counters": [
+      "Wanwan",
+      "Marcel",
+      "Edith",
+      "Carmilla",
+      "Belerick"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Melissa": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Joy",
+      "Zhuxin",
+      "Leomord",
+      "Masha"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Yin": {
+    "source": "openmlbb",
+    "counters": [
+      "Estes",
+      "Diggie",
+      "Joy",
+      "Gord",
+      "Angela"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Floryn": {
+    "source": "openmlbb",
+    "counters": [
+      "Alice",
+      "Marcel",
+      "Ling",
+      "X.Borg",
+      "Natalia"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Edith": {
+    "source": "openmlbb",
+    "counters": [
+      "Faramis",
+      "Chip",
+      "Harith",
+      "Freya",
+      "Odette"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Valentina": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Carmilla",
+      "Atlas",
+      "Ling",
+      "Benedetta"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Aamon": {
+    "source": "openmlbb",
+    "counters": [
+      "Marcel",
+      "Claude",
+      "Cici",
+      "Diggie",
+      "Masha"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Aulus": {
+    "source": "openmlbb",
+    "counters": [
+      "Gloo",
+      "Baxia",
+      "Ruby",
+      "Saber",
+      "Aldous"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Natan": {
+    "source": "openmlbb",
+    "counters": [
+      "Sun",
+      "Gloo",
+      "Zhask",
+      "Balmond",
+      "Aulus"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Phoveus": {
+    "source": "openmlbb",
+    "counters": [
+      "Wanwan",
+      "Freya",
+      "Harith",
+      "Joy",
+      "Ling"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Beatrix": {
+    "source": "openmlbb",
+    "counters": [
+      "Estes",
+      "Hanabi",
+      "Baxia",
+      "Edith",
+      "Belerick"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Gloo": {
+    "source": "openmlbb",
+    "counters": [
+      "Aamon",
+      "Johnson",
+      "Jawhead",
+      "Lesley",
+      "Odette"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Mathilda": {
+    "source": "openmlbb",
+    "counters": [
+      "Valir",
+      "Lancelot",
+      "Kagura",
+      "Barats",
+      "Granger"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Yve": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "X.Borg",
+      "Roger",
+      "Alpha",
+      "Masha"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Brody": {
+    "source": "openmlbb",
+    "counters": [
+      "Karina",
+      "Belerick",
+      "Helcurt",
+      "Natalia",
+      "Fanny"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Barats": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Eudora",
+      "Valentina",
+      "Saber",
+      "Silvanna"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Khaleed": {
+    "source": "openmlbb",
+    "counters": [
+      "Nolan",
+      "Yin",
+      "Vale",
+      "Argus",
+      "Zilong"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Benedetta": {
+    "source": "openmlbb",
+    "counters": [
+      "Alpha",
+      "X.Borg",
+      "Atlas",
+      "Silvanna",
+      "Baxia"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Luo Yi": {
+    "source": "openmlbb",
+    "counters": [
+      "Estes",
+      "Popol and Kupa",
+      "Edith",
+      "Dyrroth",
+      "Argus"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Yu Zhong": {
+    "source": "openmlbb",
+    "counters": [
+      "Gloo",
+      "Minsitthar",
+      "Esmeralda",
+      "Popol and Kupa",
+      "Atlas"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Popol and Kupa": {
+    "source": "openmlbb",
+    "counters": [
+      "Bruno",
+      "Selena",
+      "Diggie",
+      "Cyclops",
+      "Joy"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Atlas": {
+    "source": "openmlbb",
+    "counters": [
+      "Popol and Kupa",
+      "Lolita",
+      "Layla",
+      "Estes",
+      "Eudora"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Carmilla": {
+    "source": "openmlbb",
+    "counters": [
+      "Popol and Kupa",
+      "Chip",
+      "Barats",
+      "Johnson",
+      "Estes"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Cecilion": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Martis",
+      "Terizla",
+      "Edith",
+      "Aurora"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Silvanna": {
+    "source": "openmlbb",
+    "counters": [
+      "Aamon",
+      "Valentina",
+      "Floryn",
+      "Angela",
+      "Sun"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Wanwan": {
+    "source": "openmlbb",
+    "counters": [
+      "Atlas",
+      "Guinevere",
+      "Gloo",
+      "Ixia",
+      "Yin"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Masha": {
+    "source": "openmlbb",
+    "counters": [
+      "Gloo",
+      "Fanny",
+      "Saber",
+      "Guinevere",
+      "Yu Zhong"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Baxia": {
+    "source": "openmlbb",
+    "counters": [
+      "Obsidia",
+      "Edith",
+      "Lukas",
+      "Barats",
+      "Minsitthar"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Lylia": {
+    "source": "openmlbb",
+    "counters": [
+      "Alpha",
+      "Barats",
+      "Johnson",
+      "Hanabi",
+      "Dyrroth"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Dyrroth": {
+    "source": "openmlbb",
+    "counters": [
+      "Lukas",
+      "Uranus",
+      "Moskov",
+      "Diggie",
+      "Alice"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Ling": {
+    "source": "openmlbb",
+    "counters": [
+      "Hanzo",
+      "Alpha",
+      "Balmond",
+      "Gloo",
+      "Atlas"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "X.Borg": {
+    "source": "openmlbb",
+    "counters": [
+      "Barats",
+      "Baxia",
+      "Terizla",
+      "Martis",
+      "Phoveus"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Terizla": {
+    "source": "openmlbb",
+    "counters": [
+      "Masha",
+      "Popol and Kupa",
+      "Khufra",
+      "Phoveus",
+      "Lolita"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Esmeralda": {
+    "source": "openmlbb",
+    "counters": [
+      "Argus",
+      "Lolita",
+      "Aldous",
+      "Marcel",
+      "Akai"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Granger": {
+    "source": "openmlbb",
+    "counters": [
+      "Karina",
+      "Baxia",
+      "Beatrix",
+      "Masha",
+      "Hanabi"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Khufra": {
+    "source": "openmlbb",
+    "counters": [
+      "Johnson",
+      "Silvanna",
+      "Natalia",
+      "Yin",
+      "Wanwan"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Badang": {
+    "source": "openmlbb",
+    "counters": [
+      "Fanny",
+      "Sun",
+      "Yin",
+      "Zilong",
+      "Wanwan"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Faramis": {
+    "source": "openmlbb",
+    "counters": [
+      "Gloo",
+      "Chip",
+      "Balmond",
+      "Karina",
+      "Baxia"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Kadita": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Ixia",
+      "Johnson",
+      "Estes",
+      "Hanzo"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Minsitthar": {
+    "source": "openmlbb",
+    "counters": [
+      "Freya",
+      "Phoveus",
+      "Karrie",
+      "Alucard",
+      "Martis"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Harith": {
+    "source": "openmlbb",
+    "counters": [
+      "Yve",
+      "Novaria",
+      "Lolita",
+      "Kagura",
+      "Suyou"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Thamuz": {
+    "source": "openmlbb",
+    "counters": [
+      "Masha",
+      "Alice",
+      "Lukas",
+      "Odette",
+      "Alucard"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Kimmy": {
+    "source": "openmlbb",
+    "counters": [
+      "Uranus",
+      "Sun",
+      "Atlas",
+      "Balmond",
+      "Hilda"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Belerick": {
+    "source": "openmlbb",
+    "counters": [
+      "Miya",
+      "Zhask",
+      "Obsidia",
+      "Johnson",
+      "Minsitthar"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Hanzo": {
+    "source": "openmlbb",
+    "counters": [
+      "Kalea",
+      "Ixia",
+      "Franco",
+      "Gord",
+      "Carmilla"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Lunox": {
+    "source": "openmlbb",
+    "counters": [
+      "Gloo",
+      "Lolita",
+      "Esmeralda",
+      "Natalia",
+      "Hanzo"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Leomord": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Popol and Kupa",
+      "Eudora",
+      "Saber",
+      "Layla"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Vale": {
+    "source": "openmlbb",
+    "counters": [
+      "Melissa",
+      "Odette",
+      "Rafaela",
+      "Silvanna",
+      "Faramis"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Claude": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Balmond",
+      "Chang'e",
+      "Johnson",
+      "Ixia"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Aldous": {
+    "source": "openmlbb",
+    "counters": [
+      "Sun",
+      "Hanzo",
+      "Beatrix",
+      "Xavier",
+      "Helcurt"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Selena": {
+    "source": "openmlbb",
+    "counters": [
+      "Luo Yi",
+      "X.Borg",
+      "Beatrix",
+      "Ixia",
+      "Benedetta"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Kaja": {
+    "source": "openmlbb",
+    "counters": [
+      "Wanwan",
+      "Ling",
+      "Benedetta",
+      "Fanny",
+      "Lapu-Lapu"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Chang'e": {
+    "source": "openmlbb",
+    "counters": [
+      "Diggie",
+      "Masha",
+      "Lukas",
+      "X.Borg",
+      "Argus"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Hanabi": {
+    "source": "openmlbb",
+    "counters": [
+      "Chip",
+      "Popol and Kupa",
+      "Barats",
+      "Kalea",
+      "Minotaur"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Uranus": {
+    "source": "openmlbb",
+    "counters": [
+      "Argus",
+      "Diggie",
+      "Bruno",
+      "Irithel",
+      "Gatotkaca"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Martis": {
+    "source": "openmlbb",
+    "counters": [
+      "Arlott",
+      "Masha",
+      "Khufra",
+      "Moskov",
+      "Lukas"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Valir": {
+    "source": "openmlbb",
+    "counters": [
+      "Fredrinn",
+      "Barats",
+      "Thamuz",
+      "Balmond",
+      "Alice"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Gusion": {
+    "source": "openmlbb",
+    "counters": [
+      "Suyou",
+      "Valir",
+      "Gord",
+      "X.Borg",
+      "Aamon"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Angela": {
+    "source": "openmlbb",
+    "counters": [
+      "Marcel",
+      "Alice",
+      "Balmond",
+      "Faramis",
+      "Lancelot"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Jawhead": {
+    "source": "openmlbb",
+    "counters": [
+      "Valentina",
+      "Zilong",
+      "Nolan",
+      "Helcurt",
+      "Bruno"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Lesley": {
+    "source": "openmlbb",
+    "counters": [
+      "Claude",
+      "Marcel",
+      "Baxia",
+      "Bruno",
+      "Gatotkaca"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Pharsa": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Valir",
+      "Aurora",
+      "Hanabi",
+      "Thamuz"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Helcurt": {
+    "source": "openmlbb",
+    "counters": [
+      "Hanzo",
+      "X.Borg",
+      "Gord",
+      "Valir",
+      "Xavier"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Zhask": {
+    "source": "openmlbb",
+    "counters": [
+      "Diggie",
+      "Lolita",
+      "Mathilda",
+      "Chip",
+      "Wanwan"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Hylos": {
+    "source": "openmlbb",
+    "counters": [
+      "Layla",
+      "Eudora",
+      "Vale",
+      "Nana",
+      "Khufra"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Diggie": {
+    "source": "openmlbb",
+    "counters": [
+      "Balmond",
+      "Zhuxin",
+      "Alpha",
+      "Masha",
+      "Alice"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Lancelot": {
+    "source": "openmlbb",
+    "counters": [
+      "Atlas",
+      "Alpha",
+      "X.Borg",
+      "Aurora",
+      "Barats"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Odette": {
+    "source": "openmlbb",
+    "counters": [
+      "Marcel",
+      "Mathilda",
+      "Faramis",
+      "Natalia",
+      "Valentina"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Argus": {
+    "source": "openmlbb",
+    "counters": [
+      "Masha",
+      "Saber",
+      "Odette",
+      "Minsitthar",
+      "Dyrroth"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Grock": {
+    "source": "openmlbb",
+    "counters": [
+      "Khufra",
+      "Argus",
+      "Johnson",
+      "Wanwan",
+      "Diggie"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Irithel": {
+    "source": "openmlbb",
+    "counters": [
+      "Wanwan",
+      "Mathilda",
+      "Benedetta",
+      "X.Borg",
+      "Beatrix"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Gatotkaca": {
+    "source": "openmlbb",
+    "counters": [
+      "Miya",
+      "Odette",
+      "Lukas",
+      "Aurora",
+      "Zilong"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Karrie": {
+    "source": "openmlbb",
+    "counters": [
+      "Alice",
+      "Esmeralda",
+      "Hylos",
+      "Balmond",
+      "Leomord"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Roger": {
+    "source": "openmlbb",
+    "counters": [
+      "Argus",
+      "Silvanna",
+      "Mathilda",
+      "Natalia",
+      "Eudora"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Vexana": {
+    "source": "openmlbb",
+    "counters": [
+      "Gloo",
+      "Chip",
+      "Zhask",
+      "Lolita",
+      "Harith"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Lapu-Lapu": {
+    "source": "openmlbb",
+    "counters": [
+      "Popol and Kupa",
+      "Silvanna",
+      "Argus",
+      "Atlas",
+      "Minotaur"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Aurora": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Marcel",
+      "Eudora",
+      "Masha",
+      "Saber"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Hilda": {
+    "source": "openmlbb",
+    "counters": [
+      "Nolan",
+      "Granger",
+      "Ling",
+      "Saber",
+      "Diggie"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Estes": {
+    "source": "openmlbb",
+    "counters": [
+      "Faramis",
+      "Cyclops",
+      "Cici",
+      "Alice",
+      "Masha"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Cyclops": {
+    "source": "openmlbb",
+    "counters": [
+      "Natalia",
+      "Marcel",
+      "Joy",
+      "Wanwan",
+      "Akai"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Johnson": {
+    "source": "openmlbb",
+    "counters": [
+      "Layla",
+      "Bruno",
+      "Eudora",
+      "Saber",
+      "Zilong"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Moskov": {
+    "source": "openmlbb",
+    "counters": [
+      "Gloo",
+      "Joy",
+      "Fanny",
+      "Wanwan",
+      "Hanzo"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Yi Sun-shin": {
+    "source": "openmlbb",
+    "counters": [
+      "Balmond",
+      "Aurora",
+      "X.Borg",
+      "Thamuz",
+      "Hanzo"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Ruby": {
+    "source": "openmlbb",
+    "counters": [
+      "Gloo",
+      "Sun",
+      "Argus",
+      "Natalia",
+      "Lunox"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Alpha": {
+    "source": "openmlbb",
+    "counters": [
+      "Chip",
+      "Phoveus",
+      "Barats",
+      "Odette",
+      "Saber"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Chou": {
+    "source": "openmlbb",
+    "counters": [
+      "Fanny",
+      "X.Borg",
+      "Natalia",
+      "Hanzo",
+      "Gord"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Kagura": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Hanzo",
+      "Cici",
+      "Alpha",
+      "Natalia"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Natalia": {
+    "source": "openmlbb",
+    "counters": [
+      "Hanzo",
+      "Gord",
+      "Minsitthar",
+      "Helcurt",
+      "Ling"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Gord": {
+    "source": "openmlbb",
+    "counters": [
+      "Barats",
+      "Lolita",
+      "Ruby",
+      "Phoveus",
+      "Terizla"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Freya": {
+    "source": "openmlbb",
+    "counters": [
+      "Yve",
+      "Lolita",
+      "Mathilda",
+      "Kagura",
+      "Diggie"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Hayabusa": {
+    "source": "openmlbb",
+    "counters": [
+      "Diggie",
+      "Zhuxin",
+      "Aamon",
+      "Novaria",
+      "Yve"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Lolita": {
+    "source": "openmlbb",
+    "counters": [
+      "Cyclops",
+      "Faramis",
+      "Chang'e",
+      "Bane",
+      "Xavier"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Minotaur": {
+    "source": "openmlbb",
+    "counters": [
+      "Mathilda",
+      "Lolita",
+      "Cyclops",
+      "Popol and Kupa",
+      "Johnson"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Layla": {
+    "source": "openmlbb",
+    "counters": [
+      "Diggie",
+      "Masha",
+      "Rafaela",
+      "Marcel",
+      "Edith"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Fanny": {
+    "source": "openmlbb",
+    "counters": [
+      "Gloo",
+      "Lolita",
+      "Yve",
+      "Granger",
+      "Atlas"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Zilong": {
+    "source": "openmlbb",
+    "counters": [
+      "Diggie",
+      "X.Borg",
+      "Karrie",
+      "Cici",
+      "Angela"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Eudora": {
+    "source": "openmlbb",
+    "counters": [
+      "Natalia",
+      "Joy",
+      "Fanny",
+      "Floryn",
+      "Irithel"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Rafaela": {
+    "source": "openmlbb",
+    "counters": [
+      "Marcel",
+      "Natalia",
+      "Baxia",
+      "Alice",
+      "Masha"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Clint": {
+    "source": "openmlbb",
+    "counters": [
+      "Lolita",
+      "Karina",
+      "Baxia",
+      "Lunox",
+      "Natalia"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Bruno": {
+    "source": "openmlbb",
+    "counters": [
+      "Wanwan",
+      "Hanzo",
+      "Marcel",
+      "Ling",
+      "Fanny"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Bane": {
+    "source": "openmlbb",
+    "counters": [
+      "Phoveus",
+      "Khufra",
+      "Mathilda",
+      "Aulus",
+      "Marcel"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Franco": {
+    "source": "openmlbb",
+    "counters": [
+      "Diggie",
+      "Angela",
+      "Fanny",
+      "Floryn",
+      "Freya"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Akai": {
+    "source": "openmlbb",
+    "counters": [
+      "Argus",
+      "Popol and Kupa",
+      "Masha",
+      "Yin",
+      "Harith"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Karina": {
+    "source": "openmlbb",
+    "counters": [
+      "Natalia",
+      "Kimmy",
+      "Helcurt",
+      "Hanzo",
+      "Moskov"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Alucard": {
+    "source": "openmlbb",
+    "counters": [
+      "Sun",
+      "Chip",
+      "Saber",
+      "Gloo",
+      "Cyclops"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Tigreal": {
+    "source": "openmlbb",
+    "counters": [
+      "Estes",
+      "Zilong",
+      "Alucard",
+      "Eudora",
+      "Layla"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Nana": {
+    "source": "openmlbb",
+    "counters": [
+      "Odette",
+      "Lolita",
+      "Chip",
+      "Estes",
+      "Melissa"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Alice": {
+    "source": "openmlbb",
+    "counters": [
+      "Barats",
+      "Gloo",
+      "Atlas",
+      "Zhask",
+      "Tigreal"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Saber": {
+    "source": "openmlbb",
+    "counters": [
+      "Nolan",
+      "Hayabusa",
+      "Natalia",
+      "Ling",
+      "Marcel"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Balmond": {
+    "source": "openmlbb",
+    "counters": [
+      "Chip",
+      "Saber",
+      "Eudora",
+      "Lesley",
+      "Lukas"
+    ],
+    "weak_against": [],
+    "synergies": []
+  },
+  "Miya": {
+    "source": "openmlbb",
+    "counters": [
+      "Masha",
+      "Obsidia",
+      "Saber",
+      "Irithel",
+      "Moskov"
+    ],
+    "weak_against": [],
+    "synergies": []
+  }
+}

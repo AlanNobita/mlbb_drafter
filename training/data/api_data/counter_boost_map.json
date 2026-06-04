@@ -1,0 +1,559 @@
+{
+  "Harley": {
+    "Suyou": 0.55,
+    "Chip": 0.55
+  },
+  "Sun": {
+    "Lukas": 0.55,
+    "Joy": 0.55,
+    "Julian": 0.55,
+    "Natan": 0.55,
+    "Silvanna": 0.55,
+    "Badang": 0.55,
+    "Kimmy": 0.55,
+    "Aldous": 0.55,
+    "Ruby": 0.55,
+    "Alucard": 0.55
+  },
+  "Lolita": {
+    "Minotaur": 0.55,
+    "Fanny": 0.55,
+    "Clint": 0.55,
+    "Nana": 0.55
+  },
+  "Popol and Kupa": {
+    "Atlas": 0.55,
+    "Carmilla": 0.55,
+    "Terizla": 0.55,
+    "Leomord": 0.55,
+    "Hanabi": 0.55,
+    "Lapu-Lapu": 0.55,
+    "Minotaur": 0.55,
+    "Akai": 0.55
+  },
+  "Natalia": {
+    "Eudora": 0.55,
+    "Rafaela": 0.55,
+    "Clint": 0.55,
+    "Karina": 0.55,
+    "Saber": 0.55
+  },
+  "Chip": {
+    "Edith": 0.55,
+    "Carmilla": 0.55,
+    "Faramis": 0.55,
+    "Hanabi": 0.55,
+    "Zhask": 0.55,
+    "Vexana": 0.55,
+    "Alpha": 0.55,
+    "Alucard": 0.55,
+    "Nana": 0.55,
+    "Balmond": 0.55
+  },
+  "Roger": {},
+  "Saber": {
+    "Balmond": 0.55,
+    "Miya": 0.55
+  },
+  "Eudora": {
+    "Tigreal": 0.55,
+    "Balmond": 0.55
+  },
+  "Suyou": {
+    "Harith": 0.55,
+    "Gusion": 0.55
+  },
+  "Gusion": {},
+  "Silvanna": {
+    "Khufra": 0.55,
+    "Vale": 0.55,
+    "Roger": 0.55,
+    "Lapu-Lapu": 0.55
+  },
+  "Harith": {
+    "Vexana": 0.55,
+    "Akai": 0.55
+  },
+  "Odette": {
+    "Argus": 0.55,
+    "Gatotkaca": 0.55,
+    "Alpha": 0.55,
+    "Nana": 0.55
+  },
+  "Cyclops": {
+    "Lolita": 0.55,
+    "Minotaur": 0.55,
+    "Alucard": 0.55
+  },
+  "Natan": {},
+  "Joy": {
+    "Melissa": 0.55,
+    "Yin": 0.55,
+    "Phoveus": 0.55,
+    "Popol and Kupa": 0.55,
+    "Cyclops": 0.55,
+    "Moskov": 0.55,
+    "Eudora": 0.55
+  },
+  "Faramis": {
+    "Vale": 0.55,
+    "Angela": 0.55,
+    "Odette": 0.55,
+    "Estes": 0.55,
+    "Lolita": 0.55,
+    "Gloo": 0.53
+  },
+  "Obsidia": {
+    "Baxia": 0.55,
+    "Belerick": 0.55,
+    "Miya": 0.55
+  },
+  "Aldous": {},
+  "Ruby": {
+    "Gord": 0.55
+  },
+  "Alucard": {
+    "Tigreal": 0.55
+  },
+  "Sora": {
+    "Paquito": 0.55,
+    "Lukas": 0.55
+  },
+  "Phoveus": {
+    "X.Borg": 0.55,
+    "Terizla": 0.55,
+    "Minsitthar": 0.55,
+    "Alpha": 0.55,
+    "Gord": 0.55,
+    "Bane": 0.55
+  },
+  "Melissa": {
+    "Vale": 0.55,
+    "Nana": 0.55
+  },
+  "Lukas": {
+    "Baxia": 0.55,
+    "Dyrroth": 0.55,
+    "Thamuz": 0.55,
+    "Chang'e": 0.55,
+    "Martis": 0.55,
+    "Gatotkaca": 0.55,
+    "Balmond": 0.55
+  },
+  "Martis": {},
+  "Khufra": {
+    "Martis": 0.55,
+    "Hylos": 0.55,
+    "Grock": 0.55,
+    "Bane": 0.55
+  },
+  "Mathilda": {
+    "Zhask": 0.55,
+    "Odette": 0.55,
+    "Irithel": 0.55,
+    "Roger": 0.55,
+    "Freya": 0.55,
+    "Minotaur": 0.55,
+    "Bane": 0.55
+  },
+  "Xavier": {
+    "Aldous": 0.55,
+    "Helcurt": 0.55,
+    "Lolita": 0.55
+  },
+  "Uranus": {},
+  "Nolan": {
+    "Arlott": 0.55,
+    "Khaleed": 0.55,
+    "Jawhead": 0.55,
+    "Hilda": 0.55,
+    "Saber": 0.55
+  },
+  "Marcel": {
+    "Guinevere": 0.55,
+    "Paquito": 0.55,
+    "Novaria": 0.55,
+    "Xavier": 0.55,
+    "Floryn": 0.55,
+    "Aamon": 0.55,
+    "Esmeralda": 0.55,
+    "Angela": 0.55,
+    "Lesley": 0.55,
+    "Odette": 0.55,
+    "Aurora": 0.55,
+    "Cyclops": 0.55,
+    "Layla": 0.55,
+    "Rafaela": 0.55,
+    "Bruno": 0.55,
+    "Bane": 0.55,
+    "Saber": 0.55
+  },
+  "Angela": {
+    "Zilong": 0.55,
+    "Franco": 0.55
+  },
+  "Floryn": {
+    "Silvanna": 0.55,
+    "Eudora": 0.55,
+    "Franco": 0.55
+  },
+  "Lesley": {
+    "Balmond": 0.55
+  },
+  "Aamon": {
+    "Gloo": 0.55,
+    "Silvanna": 0.55,
+    "Gusion": 0.55,
+    "Hayabusa": 0.55
+  },
+  "Masha": {
+    "Terizla": 0.55,
+    "Granger": 0.55,
+    "Thamuz": 0.55,
+    "Chang'e": 0.55,
+    "Martis": 0.55,
+    "Diggie": 0.55,
+    "Argus": 0.55,
+    "Aurora": 0.55,
+    "Estes": 0.55,
+    "Layla": 0.55,
+    "Rafaela": 0.55,
+    "Akai": 0.55,
+    "Miya": 0.55
+  },
+  "Ling": {
+    "Kaja": 0.55,
+    "Hilda": 0.55,
+    "Natalia": 0.55,
+    "Bruno": 0.55,
+    "Saber": 0.55
+  },
+  "Kaja": {},
+  "Guinevere": {
+    "Joy": 0.55,
+    "Wanwan": 0.55,
+    "Masha": 0.55
+  },
+  "Wanwan": {
+    "Khufra": 0.55,
+    "Badang": 0.55,
+    "Kaja": 0.55,
+    "Zhask": 0.55,
+    "Grock": 0.55,
+    "Irithel": 0.55,
+    "Cyclops": 0.55,
+    "Moskov": 0.55,
+    "Bruno": 0.55
+  },
+  "Fanny": {
+    "Eudora": 0.55,
+    "Bruno": 0.55,
+    "Franco": 0.55
+  },
+  "Diggie": {
+    "Grock": 0.55,
+    "Hilda": 0.55,
+    "Freya": 0.55,
+    "Hayabusa": 0.55,
+    "Layla": 0.55,
+    "Zilong": 0.55,
+    "Franco": 0.55
+  },
+  "Argus": {
+    "Grock": 0.55,
+    "Roger": 0.55,
+    "Lapu-Lapu": 0.55,
+    "Ruby": 0.55,
+    "Akai": 0.55
+  },
+  "Paquito": {},
+  "Esmeralda": {
+    "Lunox": 0.55,
+    "Karrie": 0.55
+  },
+  "Terizla": {
+    "Gord": 0.55
+  },
+  "Helcurt": {
+    "Natalia": 0.55,
+    "Karina": 0.55
+  },
+  "Benedetta": {
+    "Selena": 0.55,
+    "Kaja": 0.55,
+    "Irithel": 0.55
+  },
+  "Hanzo": {
+    "Lunox": 0.55,
+    "Aldous": 0.55,
+    "Helcurt": 0.55,
+    "Moskov": 0.55,
+    "Yi Sun-shin": 0.55,
+    "Chou": 0.55,
+    "Kagura": 0.55,
+    "Natalia": 0.55,
+    "Bruno": 0.55,
+    "Karina": 0.55
+  },
+  "Zetian": {},
+  "Tigreal": {
+    "Alice": 0.55
+  },
+  "Kalea": {
+    "Hanzo": 0.55,
+    "Hanabi": 0.55,
+    "Gloo": 0.52
+  },
+  "Yve": {
+    "Harith": 0.55,
+    "Freya": 0.55,
+    "Hayabusa": 0.55,
+    "Fanny": 0.55
+  },
+  "Khaleed": {},
+  "Selena": {},
+  "Zhuxin": {
+    "Melissa": 0.55,
+    "Diggie": 0.55,
+    "Hayabusa": 0.55
+  },
+  "Barats": {
+    "Carmilla": 0.55,
+    "Baxia": 0.55,
+    "Lylia": 0.55,
+    "X.Borg": 0.55,
+    "Hanabi": 0.55,
+    "Valir": 0.55,
+    "Lancelot": 0.55,
+    "Alpha": 0.55,
+    "Gord": 0.55,
+    "Alice": 0.55
+  },
+  "Gloo": {
+    "Yu Zhong": 0.55,
+    "Wanwan": 0.55,
+    "Masha": 0.55,
+    "Ling": 0.55,
+    "Faramis": 0.55,
+    "Lunox": 0.55,
+    "Vexana": 0.55,
+    "Moskov": 0.55,
+    "Ruby": 0.55,
+    "Fanny": 0.55,
+    "Alucard": 0.55,
+    "Alice": 0.55
+  },
+  "Johnson": {
+    "Minotaur": 0.55
+  },
+  "Kagura": {
+    "Freya": 0.55
+  },
+  "Bruno": {},
+  "Cici": {
+    "Arlott": 0.55,
+    "Aamon": 0.55,
+    "Estes": 0.55,
+    "Kagura": 0.55,
+    "Zilong": 0.55
+  },
+  "Thamuz": {
+    "Valir": 0.55,
+    "Pharsa": 0.55,
+    "Yi Sun-shin": 0.55
+  },
+  "Hylos": {
+    "Karrie": 0.55
+  },
+  "Alice": {},
+  "Balmond": {},
+  "Beatrix": {
+    "Granger": 0.55,
+    "Aldous": 0.55,
+    "Selena": 0.55,
+    "Irithel": 0.55
+  },
+  "Estes": {
+    "Tigreal": 0.55,
+    "Nana": 0.55
+  },
+  "Rafaela": {},
+  "Ixia": {
+    "Wanwan": 0.55,
+    "Kadita": 0.55,
+    "Hanzo": 0.55,
+    "Claude": 0.55,
+    "Selena": 0.55
+  },
+  "Hanabi": {
+    "Pharsa": 0.55
+  },
+  "Arlott": {
+    "Martis": 0.55
+  },
+  "Novaria": {
+    "Harith": 0.55,
+    "Hayabusa": 0.55
+  },
+  "Valir": {
+    "Gusion": 0.55,
+    "Pharsa": 0.55,
+    "Helcurt": 0.55
+  },
+  "Luo Yi": {
+    "Selena": 0.55
+  },
+  "Alpha": {
+    "Kagura": 0.55
+  },
+  "X.Borg": {
+    "Selena": 0.55,
+    "Chang'e": 0.55,
+    "Gusion": 0.55,
+    "Helcurt": 0.55,
+    "Lancelot": 0.55,
+    "Irithel": 0.55,
+    "Yi Sun-shin": 0.55,
+    "Chou": 0.55,
+    "Zilong": 0.55
+  },
+  "Fredrinn": {
+    "Valir": 0.55
+  },
+  "Julian": {},
+  "Valentina": {
+    "Barats": 0.55,
+    "Silvanna": 0.55,
+    "Jawhead": 0.55,
+    "Odette": 0.55
+  },
+  "Edith": {
+    "Beatrix": 0.55,
+    "Luo Yi": 0.55,
+    "Cecilion": 0.55,
+    "Baxia": 0.55,
+    "Layla": 0.55
+  },
+  "Carmilla": {
+    "Hanzo": 0.55
+  },
+  "Belerick": {},
+  "Leomord": {
+    "Karrie": 0.55
+  },
+  "Yin": {
+    "Khaleed": 0.55,
+    "Wanwan": 0.55,
+    "Khufra": 0.55,
+    "Badang": 0.55,
+    "Akai": 0.55
+  },
+  "Gord": {},
+  "Freya": {
+    "Franco": 0.55
+  },
+  "Atlas": {
+    "Wanwan": 0.55,
+    "Ling": 0.55,
+    "Kimmy": 0.55,
+    "Lancelot": 0.55,
+    "Lapu-Lapu": 0.55,
+    "Fanny": 0.55,
+    "Alice": 0.55
+  },
+  "Claude": {
+    "Lesley": 0.55
+  },
+  "Aulus": {
+    "Natan": 0.55,
+    "Bane": 0.55
+  },
+  "Baxia": {
+    "X.Borg": 0.55,
+    "Granger": 0.55,
+    "Faramis": 0.55,
+    "Lesley": 0.55,
+    "Rafaela": 0.55,
+    "Clint": 0.55
+  },
+  "Zhask": {
+    "Vexana": 0.55,
+    "Alice": 0.55
+  },
+  "Jawhead": {},
+  "Lancelot": {},
+  "Granger": {
+    "Hilda": 0.55,
+    "Fanny": 0.55
+  },
+  "Brody": {},
+  "Karina": {},
+  "Vale": {
+    "Hylos": 0.55
+  },
+  "Zilong": {
+    "Tigreal": 0.55
+  },
+  "Dyrroth": {
+    "Argus": 0.55
+  },
+  "Yu Zhong": {
+    "Masha": 0.55
+  },
+  "Minsitthar": {
+    "Belerick": 0.55,
+    "Argus": 0.55,
+    "Natalia": 0.55
+  },
+  "Layla": {
+    "Tigreal": 0.55
+  },
+  "Cecilion": {},
+  "Aurora": {
+    "Yi Sun-shin": 0.55
+  },
+  "Lylia": {},
+  "Moskov": {
+    "Karina": 0.55,
+    "Miya": 0.55
+  },
+  "Akai": {},
+  "Badang": {},
+  "Kadita": {},
+  "Karrie": {
+    "Zilong": 0.55
+  },
+  "Kimmy": {
+    "Karina": 0.55
+  },
+  "Hilda": {},
+  "Miya": {},
+  "Franco": {},
+  "Lunox": {
+    "Ruby": 0.55,
+    "Clint": 0.55
+  },
+  "Chang'e": {
+    "Lolita": 0.55
+  },
+  "Lapu-Lapu": {},
+  "Minotaur": {},
+  "Irithel": {
+    "Eudora": 0.55,
+    "Miya": 0.55
+  },
+  "Gatotkaca": {},
+  "Pharsa": {},
+  "Nana": {},
+  "Grock": {},
+  "Vexana": {
+    "Gloo": 0.55
+  },
+  "Yi Sun-shin": {},
+  "Chou": {},
+  "Hayabusa": {
+    "Saber": 0.55
+  },
+  "Bane": {},
+  "Clint": {}
+}

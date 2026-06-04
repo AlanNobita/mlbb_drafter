@@ -1,0 +1,232 @@
+{
+  "Harley": {
+    "counters": [
+      "Sun",
+      "Lolita",
+      "Popol and Kupa",
+      "Natalia",
+      "Chip",
+      "Roger",
+      "Saber",
+      "Eudora"
+    ],
+    "weak_against": [
+      "Hanzo",
+      "Melissa",
+      "Suyou",
+      "Gord",
+      "Kimmy",
+      "Valir"
+    ],
+    "synergies": [
+      "Valentina",
+      "Sora",
+      "Lylia",
+      "Zhask",
+      "Marcel",
+      "Yve",
+      "Chang'e",
+      "Zetian",
+      "Zhuxin",
+      "Lunox"
+    ]
+  },
+  "Suyou": {
+    "counters": [
+      "Gusion",
+      "Silvanna",
+      "Harley",
+      "Harith",
+      "Odette",
+      "Cyclops",
+      "Natan",
+      "Joy",
+      "Faramis",
+      "Obsidia"
+    ],
+    "weak_against": [],
+    "synergies": [
+      "Marcel",
+      "Esmeralda",
+      "Valentina",
+      "Uranus",
+      "Yve",
+      "Sora",
+      "Diggie",
+      "Floryn",
+      "Phoveus",
+      "Lapu-Lapu"
+    ]
+  },
+  "Sun": {
+    "counters": [
+      "Aldous",
+      "Natan",
+      "Ruby",
+      "Alucard",
+      "Joy",
+      "Faramis",
+      "Silvanna"
+    ],
+    "weak_against": [
+      "Masha",
+      "Cici",
+      "Jawhead",
+      "Hanzo",
+      "Karrie",
+      "Diggie",
+      "Lesley",
+      "Popol and Kupa",
+      "Harley",
+      "Layla"
+    ],
+    "synergies": [
+      "X.Borg",
+      "Gloo",
+      "Saber",
+      "Barats",
+      "Lapu-Lapu",
+      "Cici",
+      "Yu Zhong",
+      "Phoveus",
+      "Faramis",
+      "Hilda"
+    ]
+  },
+  "Sora": {
+    "counters": [
+      "Phoveus",
+      "Melissa",
+      "Lukas",
+      "Martis",
+      "Khufra",
+      "Mathilda",
+      "Xavier",
+      "Chip",
+      "Uranus",
+      "Nolan"
+    ],
+    "weak_against": [
+      "Paquito",
+      "Estes",
+      "Rafaela",
+      "Bane",
+      "Lapu-Lapu",
+      "Beatrix",
+      "Ruby",
+      "Aulus",
+      "Yi Sun-shin"
+    ],
+    "synergies": [
+      "Harley",
+      "Floryn",
+      "Estes",
+      "Diggie",
+      "Mathilda",
+      "Angela",
+      "Bane",
+      "Aulus",
+      "Chip",
+      "Joy"
+    ]
+  },
+  "Marcel": {
+    "counters": [
+      "Angela",
+      "Floryn",
+      "Lesley",
+      "Aamon",
+      "Cyclops",
+      "Odette",
+      "Masha",
+      "Ling",
+      "Kaja",
+      "Chip"
+    ],
+    "weak_against": [
+      "Atlas",
+      "Paquito",
+      "Belerick",
+      "Khufra",
+      "Akai",
+      "Baxia",
+      "Zhuxin",
+      "Chip"
+    ],
+    "synergies": [
+      "Xavier",
+      "Valentina",
+      "Harley",
+      "Saber",
+      "Paquito",
+      "Granger",
+      "Arlott",
+      "Luo Yi",
+      "Melissa",
+      "Edith"
+    ]
+  },
+  "Guinevere": {
+    "counters": [
+      "Wanwan",
+      "Masha",
+      "Khufra",
+      "Fanny",
+      "Diggie",
+      "Argus",
+      "Joy",
+      "Lolita",
+      "Marcel",
+      "Kaja"
+    ],
+    "weak_against": [
+      "Julian",
+      "Lunox",
+      "Lylia",
+      "Dyrroth"
+    ],
+    "synergies": [
+      "Aulus",
+      "Marcel",
+      "Balmond",
+      "Minotaur",
+      "Sun",
+      "Valentina",
+      "Mathilda",
+      "Lukas"
+    ]
+  },
+  "Paquito": {
+    "counters": [
+      "Sora",
+      "Marcel",
+      "Esmeralda",
+      "Phoveus",
+      "Khufra",
+      "Masha",
+      "Terizla",
+      "Melissa"
+    ],
+    "weak_against": [
+      "Natalia",
+      "Yu Zhong",
+      "Karina",
+      "Cici",
+      "Nolan",
+      "Lylia",
+      "X.Borg"
+    ],
+    "synergies": [
+      "Marcel",
+      "Bane",
+      "Baxia",
+      "Belerick",
+      "Balmond",
+      "Sun",
+      "Faramis",
+      "Joy",
+      "Diggie",
+      "Khaleed"
+    ]
+  }
+}
