@@ -228,5 +228,19 @@
       "Diggie",
       "Khaleed"
     ]
+  },
+  "Argus": {
+    "counters": [],
+    "weak_against": [],
+    "synergies": [
+      "Gloo",
+      "Hilda",
+      "Balmond",
+      "Badang",
+      "Johnson",
+      "Khaleed",
+      "Natalia",
+      "Baxia"
+    ]
   }
 }

@@ -11,7 +11,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5614,
+      "current_pick_rate": 0.0011,
+      "current_ban_rate": 0.0045000000000000005,
+      "mlbb_io_rank": 1
     },
     {
       "id": 23,
@@ -24,7 +28,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5519,
+      "current_pick_rate": 0.0131,
+      "current_ban_rate": 0.020099999999999996,
+      "mlbb_io_rank": 3
     },
     {
       "id": 132,
@@ -37,7 +45,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.545,
+      "current_pick_rate": 0.0025,
+      "current_ban_rate": 1.1484,
+      "mlbb_io_rank": 6
     },
     {
       "id": 104,
@@ -51,7 +63,11 @@
         "EXP",
         "Roam"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5545,
+      "current_pick_rate": 0.005699999999999999,
+      "current_ban_rate": 0.7222,
+      "mlbb_io_rank": 2
     },
     {
       "id": 20,
@@ -64,7 +80,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5499,
+      "current_pick_rate": 0.0013,
+      "current_ban_rate": 0.0165,
+      "mlbb_io_rank": 4
     },
     {
       "id": 60,
@@ -77,7 +97,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.545,
+      "current_pick_rate": 0.0337,
+      "current_ban_rate": 0.1195,
+      "mlbb_io_rank": 5
     },
     {
       "id": 48,
@@ -90,7 +114,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5385,
+      "current_pick_rate": 0.002,
+      "current_ban_rate": 0.1493,
+      "mlbb_io_rank": 9
     },
     {
       "id": 27,
@@ -104,7 +132,11 @@
         "EXP",
         "Jungle"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5399,
+      "current_pick_rate": 0.0165,
+      "current_ban_rate": 0.34600000000000003,
+      "mlbb_io_rank": 7
     },
     {
       "id": 62,
@@ -117,7 +149,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5392,
+      "current_pick_rate": 0.0028000000000000004,
+      "current_ban_rate": 0.08529999999999999,
+      "mlbb_io_rank": 8
     },
     {
       "id": 78,
@@ -130,7 +166,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5355,
+      "current_pick_rate": 0.0026,
+      "current_ban_rate": 0.026000000000000002,
+      "mlbb_io_rank": 10
     },
     {
       "id": 112,
@@ -143,7 +183,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5327000000000001,
+      "current_pick_rate": 0.0105,
+      "current_ban_rate": 0.2562,
+      "mlbb_io_rank": 11
     },
     {
       "id": 67,
@@ -157,7 +201,11 @@
         "Jungle",
         "EXP"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.53,
+      "current_pick_rate": 0.011399999999999999,
+      "current_ban_rate": 0.1106,
+      "mlbb_io_rank": 12
     },
     {
       "id": 94,
@@ -171,7 +219,11 @@
         "Gold",
         "Jungle"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.5274,
+      "current_pick_rate": 0.0027,
+      "current_ban_rate": 0.0034000000000000002,
+      "mlbb_io_rank": 17
     },
     {
       "id": 70,
@@ -185,7 +237,11 @@
         "Roam",
         "EXP"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5235,
+      "current_pick_rate": 0.013300000000000001,
+      "current_ban_rate": 0.0781,
+      "mlbb_io_rank": 22
     },
     {
       "id": 90,
@@ -198,7 +254,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5289,
+      "current_pick_rate": 0.013000000000000001,
+      "current_ban_rate": 0.0294,
+      "mlbb_io_rank": 15
     },
     {
       "id": 57,
@@ -211,7 +271,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5294,
+      "current_pick_rate": 0.010700000000000001,
+      "current_ban_rate": 0.0258,
+      "mlbb_io_rank": 14
     },
     {
       "id": 35,
@@ -225,7 +289,11 @@
         "EXP",
         "Roam"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5294,
+      "current_pick_rate": 0.0105,
+      "current_ban_rate": 0.2066,
+      "mlbb_io_rank": 13
     },
     {
       "id": 98,
@@ -238,7 +306,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5273,
+      "current_pick_rate": 0.0039000000000000003,
+      "current_ban_rate": 0.0086,
+      "mlbb_io_rank": 19
     },
     {
       "id": 19,
@@ -251,7 +323,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5273,
+      "current_pick_rate": 0.004699999999999999,
+      "current_ban_rate": 0.057800000000000004,
+      "mlbb_io_rank": 20
     },
     {
       "id": 82,
@@ -264,7 +340,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5274,
+      "current_pick_rate": 0.0067,
+      "current_ban_rate": 0.0085,
+      "mlbb_io_rank": 18
     },
     {
       "id": 45,
@@ -277,7 +357,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5275,
+      "current_pick_rate": 0.0040999999999999995,
+      "current_ban_rate": 0.013600000000000001,
+      "mlbb_io_rank": 16
     },
     {
       "id": 34,
@@ -290,7 +374,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5247999999999999,
+      "current_pick_rate": 0.0067,
+      "current_ban_rate": 0.515,
+      "mlbb_io_rank": 21
     },
     {
       "id": 97,
@@ -304,7 +392,11 @@
         "EXP",
         "Jungle"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5221,
+      "current_pick_rate": 0.0046,
+      "current_ban_rate": 0.0088,
+      "mlbb_io_rank": 23
     },
     {
       "id": 103,
@@ -318,7 +410,11 @@
         "EXP",
         "Jungle"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5082,
+      "current_pick_rate": 0.0086,
+      "current_ban_rate": 0.034300000000000004,
+      "mlbb_io_rank": 50
     },
     {
       "id": 74,
@@ -331,7 +427,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5212,
+      "current_pick_rate": 0.0087,
+      "current_ban_rate": 0.2357,
+      "mlbb_io_rank": 24
     },
     {
       "id": 50,
@@ -344,7 +444,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5153,
+      "current_pick_rate": 0.0034000000000000002,
+      "current_ban_rate": 0.0045000000000000005,
+      "mlbb_io_rank": 33
     },
     {
       "id": 14,
@@ -357,7 +461,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5172,
+      "current_pick_rate": 0.0034000000000000002,
+      "current_ban_rate": 0.0262,
+      "mlbb_io_rank": 25
     },
     {
       "id": 22,
@@ -371,7 +479,11 @@
         "EXP",
         "Jungle"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5119,
+      "current_pick_rate": 0.0116,
+      "current_ban_rate": 0.2285,
+      "mlbb_io_rank": 40
     },
     {
       "id": 1,
@@ -384,7 +496,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.5165,
+      "current_pick_rate": 0.0268,
+      "current_ban_rate": 0.0483,
+      "mlbb_io_rank": 29
     },
     {
       "id": 114,
@@ -397,7 +513,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.5165,
+      "current_pick_rate": 0.0062,
+      "current_ban_rate": 0.0115,
+      "mlbb_io_rank": 28
     },
     {
       "id": 11,
@@ -411,7 +531,11 @@
         "Gold",
         "Mid"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.5115999999999999,
+      "current_pick_rate": 0.0031,
+      "current_ban_rate": 0.0023,
+      "mlbb_io_rank": 41
     },
     {
       "id": 43,
@@ -424,7 +548,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.5165,
+      "current_pick_rate": 0.0048,
+      "current_ban_rate": 0.0032,
+      "mlbb_io_rank": 27
     },
     {
       "id": 129,
@@ -437,7 +565,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5172,
+      "current_pick_rate": 0.0206,
+      "current_ban_rate": 0.2566,
+      "mlbb_io_rank": 26
     },
     {
       "id": 33,
@@ -451,7 +583,11 @@
         "Mid",
         "Jungle"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5109,
+      "current_pick_rate": 0.0079,
+      "current_ban_rate": 0.0043,
+      "mlbb_io_rank": 43
     },
     {
       "id": 93,
@@ -464,7 +600,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5162,
+      "current_pick_rate": 0.0049,
+      "current_ban_rate": 0.049100000000000005,
+      "mlbb_io_rank": 31
     },
     {
       "id": 126,
@@ -477,7 +617,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.5107,
+      "current_pick_rate": 0.0206,
+      "current_ban_rate": 0.29109999999999997,
+      "mlbb_io_rank": 45
     },
     {
       "id": 117,
@@ -490,7 +634,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5124,
+      "current_pick_rate": 0.0072,
+      "current_ban_rate": 0.0709,
+      "mlbb_io_rank": 37
     },
     {
       "id": 75,
@@ -504,7 +652,11 @@
         "Mid",
         "Roam"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5146999999999999,
+      "current_pick_rate": 0.0098,
+      "current_ban_rate": 0.0812,
+      "mlbb_io_rank": 35
     },
     {
       "id": 59,
@@ -518,7 +670,11 @@
         "EXP",
         "Roam"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5163,
+      "current_pick_rate": 0.0051,
+      "current_ban_rate": 0.0096,
+      "mlbb_io_rank": 30
     },
     {
       "id": 92,
@@ -531,7 +687,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5147999999999999,
+      "current_pick_rate": 0.0054,
+      "current_ban_rate": 0.0129,
+      "mlbb_io_rank": 34
     },
     {
       "id": 125,
@@ -544,7 +704,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5083,
+      "current_pick_rate": 0.0055000000000000005,
+      "current_ban_rate": 0.2434,
+      "mlbb_io_rank": 49
     },
     {
       "id": 106,
@@ -557,7 +721,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5109,
+      "current_pick_rate": 0.0072,
+      "current_ban_rate": 0.0271,
+      "mlbb_io_rank": 44
     },
     {
       "id": 109,
@@ -570,7 +738,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.5128,
+      "current_pick_rate": 0.008,
+      "current_ban_rate": 0.0862,
+      "mlbb_io_rank": 36
     },
     {
       "id": 87,
@@ -584,7 +756,11 @@
         "Jungle",
         "Roam"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.5091,
+      "current_pick_rate": 0.0017000000000000001,
+      "current_ban_rate": 0.0040999999999999995,
+      "mlbb_io_rank": 46
     },
     {
       "id": 111,
@@ -597,7 +773,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5113,
+      "current_pick_rate": 0.0021,
+      "current_ban_rate": 0.001,
+      "mlbb_io_rank": 42
     },
     {
       "id": 101,
@@ -610,7 +790,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5155,
+      "current_pick_rate": 0.0012,
+      "current_ban_rate": 0.0018,
+      "mlbb_io_rank": 32
     },
     {
       "id": 38,
@@ -623,7 +807,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5065,
+      "current_pick_rate": 0.0192,
+      "current_ban_rate": 0.0169,
+      "mlbb_io_rank": 57
     },
     {
       "id": 46,
@@ -636,7 +824,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5084000000000001,
+      "current_pick_rate": 0.0074,
+      "current_ban_rate": 0.0060999999999999995,
+      "mlbb_io_rank": 48
     },
     {
       "id": 100,
@@ -649,7 +841,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.5077,
+      "current_pick_rate": 0.0048,
+      "current_ban_rate": 0.0055000000000000005,
+      "mlbb_io_rank": 52
     },
     {
       "id": 80,
@@ -663,7 +859,11 @@
         "EXP",
         "Mid"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5075,
+      "current_pick_rate": 0.0126,
+      "current_ban_rate": 0.34600000000000003,
+      "mlbb_io_rank": 53
     },
     {
       "id": 108,
@@ -676,7 +876,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.512,
+      "current_pick_rate": 0.0034999999999999996,
+      "current_ban_rate": 0.045899999999999996,
+      "mlbb_io_rank": 39
     },
     {
       "id": 107,
@@ -689,7 +893,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.5072,
+      "current_pick_rate": 0.0038,
+      "current_ban_rate": 0.0031,
+      "mlbb_io_rank": 54
     },
     {
       "id": 66,
@@ -702,7 +910,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5065999999999999,
+      "current_pick_rate": 0.006500000000000001,
+      "current_ban_rate": 0.0038,
+      "mlbb_io_rank": 56
     },
     {
       "id": 29,
@@ -715,7 +927,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5086999999999999,
+      "current_pick_rate": 0.004699999999999999,
+      "current_ban_rate": 0.0054,
+      "mlbb_io_rank": 47
     },
     {
       "id": 13,
@@ -728,7 +944,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.507,
+      "current_pick_rate": 0.008,
+      "current_ban_rate": 0.009000000000000001,
+      "mlbb_io_rank": 55
     },
     {
       "id": 32,
@@ -742,7 +962,11 @@
         "Roam",
         "Jungle"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5054,
+      "current_pick_rate": 0.0084,
+      "current_ban_rate": 0.0277,
+      "mlbb_io_rank": 60
     },
     {
       "id": 77,
@@ -755,7 +979,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5057,
+      "current_pick_rate": 0.0092,
+      "current_ban_rate": 0.0113,
+      "mlbb_io_rank": 59
     },
     {
       "id": 42,
@@ -768,7 +996,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5121,
+      "current_pick_rate": 0.0123,
+      "current_ban_rate": 0.741,
+      "mlbb_io_rank": 38
     },
     {
       "id": 40,
@@ -781,7 +1013,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.5006,
+      "current_pick_rate": 0.009399999999999999,
+      "current_ban_rate": 0.0446,
+      "mlbb_io_rank": 69
     },
     {
       "id": 69,
@@ -794,7 +1030,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.5078,
+      "current_pick_rate": 0.0032,
+      "current_ban_rate": 0.030600000000000002,
+      "mlbb_io_rank": 51
     },
     {
       "id": 9,
@@ -809,7 +1049,11 @@
         "EXP",
         "Roam"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.5062,
+      "current_pick_rate": 0.0053,
+      "current_ban_rate": 0.0275,
+      "mlbb_io_rank": 58
     },
     {
       "id": 105,
@@ -822,7 +1066,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.5014,
+      "current_pick_rate": 0.0073,
+      "current_ban_rate": 0.0072,
+      "mlbb_io_rank": 64
     },
     {
       "id": 127,
@@ -835,7 +1083,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5005,
+      "current_pick_rate": 0.0037,
+      "current_ban_rate": 0.008100000000000001,
+      "mlbb_io_rank": 71
     },
     {
       "id": 30,
@@ -848,7 +1100,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.4979,
+      "current_pick_rate": 0.0147,
+      "current_ban_rate": 0.1387,
+      "mlbb_io_rank": 75
     },
     {
       "id": 121,
@@ -861,7 +1117,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.501,
+      "current_pick_rate": 0.0084,
+      "current_ban_rate": 0.018500000000000003,
+      "mlbb_io_rank": 65
     },
     {
       "id": 24,
@@ -874,7 +1134,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.5047,
+      "current_pick_rate": 0.0029,
+      "current_ban_rate": 0.0213,
+      "mlbb_io_rank": 61
     },
     {
       "id": 25,
@@ -887,7 +1151,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.5024000000000001,
+      "current_pick_rate": 0.0063,
+      "current_ban_rate": 0.0113,
+      "mlbb_io_rank": 62
     },
     {
       "id": 31,
@@ -901,7 +1169,11 @@
         "Gold",
         "Jungle"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.5017,
+      "current_pick_rate": 0.01,
+      "current_ban_rate": 0.0039000000000000003,
+      "mlbb_io_rank": 63
     },
     {
       "id": 72,
@@ -914,7 +1186,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5006,
+      "current_pick_rate": 0.0113,
+      "current_ban_rate": 0.045599999999999995,
+      "mlbb_io_rank": 70
     },
     {
       "id": 7,
@@ -927,7 +1203,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.499,
+      "current_pick_rate": 0.0059,
+      "current_ban_rate": 0.0070999999999999995,
+      "mlbb_io_rank": 73
     },
     {
       "id": 116,
@@ -940,7 +1220,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5008,
+      "current_pick_rate": 0.0124,
+      "current_ban_rate": 0.0393,
+      "mlbb_io_rank": 67
     },
     {
       "id": 130,
@@ -953,7 +1237,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.5007,
+      "current_pick_rate": 0.0089,
+      "current_ban_rate": 0.0239,
+      "mlbb_io_rank": 68
     },
     {
       "id": 4,
@@ -967,7 +1255,11 @@
         "EXP",
         "Mid"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.5008,
+      "current_pick_rate": 0.008199999999999999,
+      "current_ban_rate": 0.1125,
+      "mlbb_io_rank": 66
     },
     {
       "id": 51,
@@ -980,7 +1272,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.498,
+      "current_pick_rate": 0.0085,
+      "current_ban_rate": 0.3031,
+      "mlbb_io_rank": 74
     },
     {
       "id": 76,
@@ -994,7 +1290,11 @@
         "Mid",
         "Roam"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.4978,
+      "current_pick_rate": 0.001,
+      "current_ban_rate": 0.0078000000000000005,
+      "mlbb_io_rank": 76
     },
     {
       "id": 3,
@@ -1007,7 +1307,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.4968,
+      "current_pick_rate": 0.0098,
+      "current_ban_rate": 0.22649999999999998,
+      "mlbb_io_rank": 77
     },
     {
       "id": 64,
@@ -1021,7 +1325,11 @@
         "EXP",
         "Jungle"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.49979999999999997,
+      "current_pick_rate": 0.0034999999999999996,
+      "current_ban_rate": 0.0048,
+      "mlbb_io_rank": 72
     },
     {
       "id": 83,
@@ -1034,7 +1342,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.49579999999999996,
+      "current_pick_rate": 0.0066,
+      "current_ban_rate": 0.0446,
+      "mlbb_io_rank": 79
     },
     {
       "id": 99,
@@ -1047,7 +1359,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.49579999999999996,
+      "current_pick_rate": 0.0013,
+      "current_ban_rate": 0.0011,
+      "mlbb_io_rank": 78
     },
     {
       "id": 65,
@@ -1061,7 +1377,11 @@
         "Gold",
         "Jungle"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.4951,
+      "current_pick_rate": 0.01,
+      "current_ban_rate": 0.0059,
+      "mlbb_io_rank": 80
     },
     {
       "id": 91,
@@ -1074,7 +1394,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.4924,
+      "current_pick_rate": 0.006500000000000001,
+      "current_ban_rate": 0.0024,
+      "mlbb_io_rank": 82
     },
     {
       "id": 56,
@@ -1087,7 +1411,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.4946,
+      "current_pick_rate": 0.0167,
+      "current_ban_rate": 0.1284,
+      "mlbb_io_rank": 81
     },
     {
       "id": 39,
@@ -1101,7 +1429,11 @@
         "Jungle",
         "Gold"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.4913,
+      "current_pick_rate": 0.0031,
+      "current_ban_rate": 0.0011,
+      "mlbb_io_rank": 83
     },
     {
       "id": 55,
@@ -1114,7 +1446,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.4901,
+      "current_pick_rate": 0.0161,
+      "current_ban_rate": 0.0757,
+      "mlbb_io_rank": 84
     },
     {
       "id": 61,
@@ -1127,7 +1463,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.4885,
+      "current_pick_rate": 0.0083,
+      "current_ban_rate": 0.0062,
+      "mlbb_io_rank": 87
     },
     {
       "id": 124,
@@ -1140,7 +1480,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.484,
+      "current_pick_rate": 0.0006,
+      "current_ban_rate": 0.0281,
+      "mlbb_io_rank": 93
     },
     {
       "id": 15,
@@ -1153,7 +1497,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.48950000000000005,
+      "current_pick_rate": 0.008,
+      "current_ban_rate": 0.0252,
+      "mlbb_io_rank": 85
     },
     {
       "id": 86,
@@ -1166,7 +1514,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.4879,
+      "current_pick_rate": 0.0069,
+      "current_ban_rate": 0.011399999999999999,
+      "mlbb_io_rank": 88
     },
     {
       "id": 49,
@@ -1180,7 +1532,11 @@
         "EXP",
         "Roam"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.4855,
+      "current_pick_rate": 0.0038,
+      "current_ban_rate": 0.0092,
+      "mlbb_io_rank": 90
     },
     {
       "id": 131,
@@ -1194,7 +1550,11 @@
         "EXP",
         "Jungle"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.4853,
+      "current_pick_rate": 0.0083,
+      "current_ban_rate": 0.4869,
+      "mlbb_io_rank": 91
     },
     {
       "id": 18,
@@ -1207,7 +1567,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.4826,
+      "current_pick_rate": 0.0108,
+      "current_ban_rate": 0.0111,
+      "mlbb_io_rank": 99
     },
     {
       "id": 89,
@@ -1220,7 +1584,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.4813,
+      "current_pick_rate": 0.0018,
+      "current_ban_rate": 0.0033,
+      "mlbb_io_rank": 102
     },
     {
       "id": 5,
@@ -1233,7 +1601,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.48200000000000004,
+      "current_pick_rate": 0.016200000000000003,
+      "current_ban_rate": 0.04650000000000001,
+      "mlbb_io_rank": 100
     },
     {
       "id": 118,
@@ -1246,7 +1618,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.48460000000000003,
+      "current_pick_rate": 0.0024,
+      "current_ban_rate": 0.0064,
+      "mlbb_io_rank": 92
     },
     {
       "id": 113,
@@ -1259,7 +1635,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.4813,
+      "current_pick_rate": 0.005699999999999999,
+      "current_ban_rate": 0.031400000000000004,
+      "mlbb_io_rank": 103
     },
     {
       "id": 37,
@@ -1272,7 +1652,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.48619999999999997,
+      "current_pick_rate": 0.0054,
+      "current_ban_rate": 0.0105,
+      "mlbb_io_rank": 89
     },
     {
       "id": 68,
@@ -1285,7 +1669,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.483,
+      "current_pick_rate": 0.0032,
+      "current_ban_rate": 0.0043,
+      "mlbb_io_rank": 97
     },
     {
       "id": 21,
@@ -1298,7 +1686,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.48310000000000003,
+      "current_pick_rate": 0.009000000000000001,
+      "current_ban_rate": 0.0533,
+      "mlbb_io_rank": 96
     },
     {
       "id": 85,
@@ -1312,7 +1704,11 @@
         "EXP",
         "Jungle"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.48369999999999996,
+      "current_pick_rate": 0.0127,
+      "current_ban_rate": 0.0113,
+      "mlbb_io_rank": 94
     },
     {
       "id": 115,
@@ -1325,7 +1721,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.4829,
+      "current_pick_rate": 0.0049,
+      "current_ban_rate": 0.0022,
+      "mlbb_io_rank": 98
     },
     {
       "id": 54,
@@ -1339,7 +1739,11 @@
         "EXP",
         "Roam"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.4813,
+      "current_pick_rate": 0.0043,
+      "current_ban_rate": 0.0039000000000000003,
+      "mlbb_io_rank": 101
     },
     {
       "id": 123,
@@ -1352,7 +1756,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.4793,
+      "current_pick_rate": 0.0037,
+      "current_ban_rate": 0.016399999999999998,
+      "mlbb_io_rank": 106
     },
     {
       "id": 73,
@@ -1366,7 +1774,11 @@
         "Mid",
         "Jungle"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.4892,
+      "current_pick_rate": 0.0064,
+      "current_ban_rate": 0.039,
+      "mlbb_io_rank": 86
     },
     {
       "id": 12,
@@ -1379,7 +1791,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.4783,
+      "current_pick_rate": 0.0021,
+      "current_ban_rate": 0.0014000000000000002,
+      "mlbb_io_rank": 108
     },
     {
       "id": 95,
@@ -1392,7 +1808,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.48340000000000005,
+      "current_pick_rate": 0.0108,
+      "current_ban_rate": 0.027200000000000002,
+      "mlbb_io_rank": 95
     },
     {
       "id": 36,
@@ -1405,7 +1825,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.479,
+      "current_pick_rate": 0.004,
+      "current_ban_rate": 0.0027,
+      "mlbb_io_rank": 107
     },
     {
       "id": 44,
@@ -1418,7 +1842,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.47950000000000004,
+      "current_pick_rate": 0.0066,
+      "current_ban_rate": 0.042300000000000004,
+      "mlbb_io_rank": 105
     },
     {
       "id": 63,
@@ -1432,7 +1860,11 @@
         "Mid",
         "Roam"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.4803,
+      "current_pick_rate": 0.0108,
+      "current_ban_rate": 0.0317,
+      "mlbb_io_rank": 104
     },
     {
       "id": 6,
@@ -1445,7 +1877,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.4744,
+      "current_pick_rate": 0.0202,
+      "current_ban_rate": 0.07,
+      "mlbb_io_rank": 114
     },
     {
       "id": 120,
@@ -1459,7 +1895,11 @@
         "EXP",
         "Jungle"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.4772,
+      "current_pick_rate": 0.0048,
+      "current_ban_rate": 0.006500000000000001,
+      "mlbb_io_rank": 109
     },
     {
       "id": 71,
@@ -1473,7 +1913,11 @@
         "Mid",
         "Gold"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.4756,
+      "current_pick_rate": 0.0074,
+      "current_ban_rate": 0.0077,
+      "mlbb_io_rank": 110
     },
     {
       "id": 52,
@@ -1486,7 +1930,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.47450000000000003,
+      "current_pick_rate": 0.006500000000000001,
+      "current_ban_rate": 0.0048,
+      "mlbb_io_rank": 113
     },
     {
       "id": 122,
@@ -1499,7 +1947,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.4755,
+      "current_pick_rate": 0.0026,
+      "current_ban_rate": 0.0046,
+      "mlbb_io_rank": 111
     },
     {
       "id": 16,
@@ -1513,7 +1965,11 @@
         "EXP",
         "Jungle"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.4718,
+      "current_pick_rate": 0.0095,
+      "current_ban_rate": 0.0073,
+      "mlbb_io_rank": 116
     },
     {
       "id": 28,
@@ -1527,7 +1983,11 @@
         "Jungle",
         "EXP"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.4697,
+      "current_pick_rate": 0.011200000000000002,
+      "current_ban_rate": 0.0076,
+      "mlbb_io_rank": 117
     },
     {
       "id": 119,
@@ -1540,7 +2000,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.47490000000000004,
+      "current_pick_rate": 0.0074,
+      "current_ban_rate": 0.0124,
+      "mlbb_io_rank": 112
     },
     {
       "id": 41,
@@ -1554,7 +2018,11 @@
         "EXP",
         "Roam"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.4729,
+      "current_pick_rate": 0.0074,
+      "current_ban_rate": 0.0055000000000000005,
+      "mlbb_io_rank": 115
     },
     {
       "id": 58,
@@ -1568,7 +2036,11 @@
         "Jungle",
         "EXP"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.4673,
+      "current_pick_rate": 0.0059,
+      "current_ban_rate": 0.006500000000000001,
+      "mlbb_io_rank": 119
     },
     {
       "id": 53,
@@ -1581,7 +2053,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.467,
+      "current_pick_rate": 0.0182,
+      "current_ban_rate": 0.0823,
+      "mlbb_io_rank": 120
     },
     {
       "id": 96,
@@ -1594,7 +2070,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.46909999999999996,
+      "current_pick_rate": 0.0018,
+      "current_ban_rate": 0.0017000000000000001,
+      "mlbb_io_rank": 118
     },
     {
       "id": 26,
@@ -1608,7 +2088,11 @@
         "EXP",
         "Roam"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.4607,
+      "current_pick_rate": 0.009899999999999999,
+      "current_ban_rate": 0.0268,
+      "mlbb_io_rank": 123
     },
     {
       "id": 8,
@@ -1621,7 +2105,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.4628,
+      "current_pick_rate": 0.0054,
+      "current_ban_rate": 0.0216,
+      "mlbb_io_rank": 121
     },
     {
       "id": 128,
@@ -1635,7 +2123,11 @@
         "Roam",
         "Mid"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.46270000000000006,
+      "current_pick_rate": 0.0036,
+      "current_ban_rate": 0.016399999999999998,
+      "mlbb_io_rank": 122
     },
     {
       "id": 84,
@@ -1648,7 +2140,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.45299999999999996,
+      "current_pick_rate": 0.002,
+      "current_ban_rate": 0.0021,
+      "mlbb_io_rank": 124
     },
     {
       "id": 10,
@@ -1661,7 +2157,11 @@
       "lanes": [
         "Roam"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.44630000000000003,
+      "current_pick_rate": 0.0128,
+      "current_ban_rate": 0.0669,
+      "mlbb_io_rank": 125
     },
     {
       "id": 81,
@@ -1674,7 +2174,11 @@
       "lanes": [
         "EXP"
       ],
-      "primary_lane": "EXP"
+      "primary_lane": "EXP",
+      "current_win_rate": 0.4328,
+      "current_pick_rate": 0.004,
+      "current_ban_rate": 0.006999999999999999,
+      "mlbb_io_rank": 129
     },
     {
       "id": 110,
@@ -1687,7 +2191,11 @@
       "lanes": [
         "Mid"
       ],
-      "primary_lane": "Mid"
+      "primary_lane": "Mid",
+      "current_win_rate": 0.4354,
+      "current_pick_rate": 0.002,
+      "current_ban_rate": 0.0046,
+      "mlbb_io_rank": 126
     },
     {
       "id": 102,
@@ -1701,7 +2209,11 @@
         "Roam",
         "Mid"
       ],
-      "primary_lane": "Roam"
+      "primary_lane": "Roam",
+      "current_win_rate": 0.4329,
+      "current_pick_rate": 0.0011,
+      "current_ban_rate": 0.0055000000000000005,
+      "mlbb_io_rank": 128
     },
     {
       "id": 47,
@@ -1714,7 +2226,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.4335,
+      "current_pick_rate": 0.006999999999999999,
+      "current_ban_rate": 0.0116,
+      "mlbb_io_rank": 127
     },
     {
       "id": 2,
@@ -1728,7 +2244,11 @@
         "Jungle",
         "EXP"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.4315,
+      "current_pick_rate": 0.0029,
+      "current_ban_rate": 0.0026,
+      "mlbb_io_rank": 130
     },
     {
       "id": 17,
@@ -1741,7 +2261,11 @@
       "lanes": [
         "Jungle"
       ],
-      "primary_lane": "Jungle"
+      "primary_lane": "Jungle",
+      "current_win_rate": 0.42950000000000005,
+      "current_pick_rate": 0.0059,
+      "current_ban_rate": 0.0338,
+      "mlbb_io_rank": 131
     },
     {
       "id": 79,
@@ -1754,7 +2278,11 @@
       "lanes": [
         "Gold"
       ],
-      "primary_lane": "Gold"
+      "primary_lane": "Gold",
+      "current_win_rate": 0.4249,
+      "current_pick_rate": 0.014499999999999999,
+      "current_ban_rate": 0.0347,
+      "mlbb_io_rank": 132
     }
   ]
 }
