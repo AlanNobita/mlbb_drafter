@@ -41,7 +41,7 @@ class MOBARecGCN(nn.Module):
         input_dim: int = 128,
         hidden_dim: int = 128,
         output_dim: int = 64,
-        hero_feature_dim: int = 10
+        hero_feature_dim: int = 15
     ):
         super().__init__()
         self.num_heros = num_heros
@@ -54,6 +54,7 @@ class MOBARecGCN(nn.Module):
         self.hero_embedding = nn.Embedding(num_heros, input_dim)
         
         # Hero feature projection (win rate, pick rate, ban rate, meta score, trend, etc.)
+        # Now includes 5 lane features: EXP, Gold, Mid, Jungle, Roam
         self.hero_feature_proj = nn.Linear(hero_feature_dim, input_dim)
         
         # GCN layers
@@ -163,8 +164,10 @@ class MOBARecGCN(nn.Module):
         available_heroes: list,
         hero_name_to_id: dict,
         hero_features: torch.Tensor = None,
+        hero_meta: dict = None,
         top_k: int = 5,
-        counter_data: dict = None
+        counter_data: dict = None,
+        filter_lanes: bool = True
     ) -> list:
         """Get top-k hero recommendations.
         
@@ -173,8 +176,10 @@ class MOBARecGCN(nn.Module):
             available_heroes: List of available hero names
             hero_name_to_id: Mapping from hero name to model index
             hero_features: Optional hero features tensor
+            hero_meta: Optional hero metadata with lane info
             top_k: Number of recommendations
             counter_data: Optional counter data from hero_counters_openmlbb.json
+            filter_lanes: If True, prioritize heroes that fill needed lanes
             
         Returns:
             List of (hero_name, win_rate) tuples
@@ -188,26 +193,41 @@ class MOBARecGCN(nn.Module):
             raise ValueError("Adjacency matrix not set. Call set_adjacency_matrix() first.")
         
         # Load counter data if not provided
+        # Try corrected counter boost map first (has community overrides)
+        counter_boost_map = None
         if counter_data is None:
-            counter_path = Path(__file__).parent.parent.parent / "training" / "data" / "api_data" / "hero_counters_openmlbb.json"
-            if counter_path.exists():
-                with open(counter_path) as f:
-                    counter_data = json.load(f)
-            else:
-                counter_data = {}
+            boost_path = Path(__file__).parent.parent.parent / "training" / "data" / "api_data" / "counter_boost_map.json"
+            if boost_path.exists():
+                with open(boost_path) as f:
+                    counter_boost_map = json.load(f)
+        
+        # Extract enemy picks for counter lookup
+        enemy_names = current_draft.get("enemy_picks", [])
         
         # Build enemy counter boost map: hero_name -> boost_score
+        # counter_boost_map format: {hero_beating: {hero_losing: win_rate}}
+        # For enemy picks, we want heroes that beat them
         enemy_counter_boost = {}
-        enemy_names = current_draft.get("enemy_picks", [])
-        for enemy in enemy_names:
-            if enemy in counter_data:
-                for counter in counter_data[enemy].get("counters", []):
-                    counter_name = counter.get("name", "")
-                    win_rate = counter.get("win_rate", 0.5)
-                    # Boost = how much better this counter is vs average (0.5)
-                    boost = max(0, win_rate - 0.5) * 2  # Scale to [0, 1]
-                    if counter_name not in enemy_counter_boost or boost > enemy_counter_boost[counter_name]:
-                        enemy_counter_boost[counter_name] = boost
+        if counter_boost_map:
+            # Use corrected data: counter_boost_map[our_hero][enemy_hero] = win_rate
+            # We want to find heroes that beat each enemy
+            for enemy in enemy_names:
+                for our_hero, matchups in counter_boost_map.items():
+                    if enemy in matchups:
+                        win_rate = matchups[enemy]
+                        boost = max(0, win_rate - 0.5) * 2  # Scale to [0, 1]
+                        if our_hero not in enemy_counter_boost or boost > enemy_counter_boost[our_hero]:
+                            enemy_counter_boost[our_hero] = boost
+        elif counter_data is not None:
+            # Fallback to old counter_data format
+            for enemy in enemy_names:
+                if enemy in counter_data:
+                    for counter in counter_data[enemy].get("counters", []):
+                        counter_name = counter.get("name", "")
+                        win_rate = counter.get("win_rate", 0.5)
+                        boost = max(0, win_rate - 0.5) * 2
+                        if counter_name not in enemy_counter_boost or boost > enemy_counter_boost[counter_name]:
+                            enemy_counter_boost[counter_name] = boost
         
         # Convert hero names to IDs (handle both 'ally_picks' and 'friendly_picks' keys)
         friendly_names = current_draft.get("ally_picks", current_draft.get("friendly_picks", []))
@@ -227,6 +247,19 @@ class MOBARecGCN(nn.Module):
             friendly_ids.append(-1)
         while len(enemy_ids) < 5:
             enemy_ids.append(-1)
+        
+        # Determine needed lanes based on current ally picks
+        needed_lanes = set()
+        if filter_lanes and hero_meta:
+            # Lanes in MLBB: EXP, Gold, Mid, Jungle, Roam
+            all_lanes = {"EXP", "Gold", "Mid", "Jungle", "Roam"}
+            used_lanes = set()
+            for name in friendly_names:
+                if name in hero_meta:
+                    primary_lane = hero_meta[name].get("primary_lane", "")
+                    if primary_lane:
+                        used_lanes.add(primary_lane)
+            needed_lanes = all_lanes - used_lanes
         
         device = self.hero_embedding.weight.device
         friendly_tensor = torch.tensor([friendly_ids[:5]], dtype=torch.long, device=device)
@@ -255,7 +288,15 @@ class MOBARecGCN(nn.Module):
             counter_boost = enemy_counter_boost.get(hero_name, 0)
             boosted_score = min(base_score + counter_boost * 0.15, 1.0)
             
-            scores.append((hero_name, boosted_score))
+            # Lane bonus: +20% if hero fills a needed lane
+            lane_bonus = 0
+            if filter_lanes and hero_meta and hero_name in hero_meta:
+                hero_lane = hero_meta[hero_name].get("primary_lane", "")
+                if hero_lane in needed_lanes:
+                    lane_bonus = 0.20
+            
+            final_score = min(boosted_score + lane_bonus, 1.0)
+            scores.append((hero_name, final_score))
         
         # Sort by boosted win rate
         scores.sort(key=lambda x: x[1], reverse=True)

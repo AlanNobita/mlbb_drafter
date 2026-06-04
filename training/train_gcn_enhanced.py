@@ -114,11 +114,23 @@ def load_hero_features() -> Tuple[torch.Tensor, Dict[str, int]]:
                     "total_synergy_games": total_games
                 }
     
+    # Load hero meta for lane data
+    hero_meta = {}
+    meta_path = Path(__file__).parent.parent / "shared" / "hero_meta.json"
+    if meta_path.exists():
+        with open(meta_path) as f:
+            meta_data = json.load(f)
+            hero_meta = {normalize_case(h['name']): h for h in meta_data.get('heroes', [])}
+    
     # Build feature tensor: [win_rate, pick_rate, ban_rate, meta_score, trend, 
     #                        weighted_win_rate, recency_score, total_games,
-    #                        synergy_win_rate, synergy_games]
-    feature_dim = 10
+    #                        synergy_win_rate, synergy_games,
+    #                        lane_EXP, lane_Gold, lane_Mid, lane_Jungle, lane_Roam]
+    feature_dim = 15
     features = torch.zeros(num_heros, feature_dim)
+    
+    # Lane encoding: EXP=0, Gold=1, Mid=2, Jungle=3, Roam=4
+    lane_to_idx = {"EXP": 10, "Gold": 11, "Mid": 12, "Jungle": 13, "Roam": 14}
     
     # Track missing heroes
     missing_heroes = []
@@ -155,6 +167,12 @@ def load_hero_features() -> Tuple[torch.Tensor, Dict[str, int]]:
         features[idx, 7] = float(temporal.get("total_tournament_games", 0)) / 1000.0  # total_games
         features[idx, 8] = cooccur.get("avg_synergy_win_rate", 0.5)  # synergy_win_rate
         features[idx, 9] = cooccur.get("total_synergy_games", 0) / 10000.0  # synergy_games
+        
+        # Lane features: one-hot encoding for primary lane
+        hero_meta_data = hero_meta.get(normalized, {}) or hero_meta.get(name, {})
+        primary_lane = hero_meta_data.get("primary_lane", "")
+        if primary_lane in lane_to_idx:
+            features[idx, lane_to_idx[primary_lane]] = 1.0
     
     if missing_heroes:
         print(f"  Warning: {len(missing_heroes)} heroes missing from API data: {missing_heroes[:5]}...")
@@ -383,7 +401,8 @@ def train_model(
     lr: float = 0.001,
     batch_size: int = 32,
     device: str = "cpu",
-    val_split: float = 0.1
+    val_split: float = 0.1,
+    patience: int = 20
 ) -> List[Dict]:
     """Train the enhanced GCN model with temporal weighting."""
     # Split into train/val
@@ -419,7 +438,7 @@ def train_model(
     best_val_loss = float("inf")
     best_model_state = None
     patience_counter = 0
-    max_patience = 20
+    max_patience = patience
     
     for epoch in range(epochs):
         # Training phase
@@ -483,7 +502,7 @@ def train_model(
             print(f"Epoch {epoch + 1}/{epochs}, Train: {avg_train_loss:.6f}, Val: {val_loss:.6f}, Best: {best_val_loss:.6f}")
         
         # Early stopping
-        if patience_counter >= max_patience:
+        if max_patience > 0 and patience_counter >= max_patience:
             print(f"Early stopping at epoch {epoch + 1}")
             break
     
@@ -507,6 +526,7 @@ def main():
     parser.add_argument("--num-layers", type=int, default=2, help="Number of GCN layers (1-4)")
     parser.add_argument("--min-year", type=int, default=2017, help="Minimum year for drafts (2017=all, 2021=recent only)")
     parser.add_argument("--temporal-decay", type=float, default=0.1, help="Temporal decay (0=equal weight, 1=only recent)")
+    parser.add_argument("--patience", type=int, default=20, help="Early stopping patience (0=disable)")
     
     args = parser.parse_args()
     
@@ -551,23 +571,24 @@ def main():
         input_dim=args.hidden_dim,
         hidden_dim=args.hidden_dim,
         output_dim=args.hidden_dim // 2,
-        hero_feature_dim=10
+        hero_feature_dim=15
     )
     model.set_adjacency_matrix(adj)
     
     param_count = sum(p.numel() for p in model.parameters())
     print(f"  Parameters: {param_count:,}")
     print(f"  Hidden dim: {args.hidden_dim}")
-    print(f"  Hero feature dim: 10 (win_rate, pick_rate, ban_rate, meta_score,")
+    print(f"  Hero feature dim: 15 (win_rate, pick_rate, ban_rate, meta_score,")
     print(f"                      trend, weighted_wr, recency, total_games,")
-    print(f"                      synergy_wr, synergy_games)")
+    print(f"                      synergy_wr, synergy_games, lane_EXP, lane_Gold,")
+    print(f"                      lane_Mid, lane_Jungle, lane_Roam)")
     print(f"  Model size: {'Small' if param_count < 100000 else 'Medium' if param_count < 500000 else 'Large'}")
     
     # Train
-    print(f"\nTraining for {args.epochs} epochs (val_split={args.val_split})...")
+    print(f"\nTraining for {args.epochs} epochs (val_split={args.val_split}, patience={args.patience})...")
     history = train_model(
         model, friendly, enemy, win_rates, hero_features, sample_weights,
-        args.epochs, args.lr, args.batch_size, args.device, args.val_split
+        args.epochs, args.lr, args.batch_size, args.device, args.val_split, args.patience
     )
     
     # Save (exclude _adj_matrix from state_dict as it's a buffer, not a parameter)
@@ -581,7 +602,7 @@ def main():
         "input_dim": args.hidden_dim,
         "hidden_dim": args.hidden_dim,
         "output_dim": args.hidden_dim // 2,
-        "hero_feature_dim": 10,
+        "hero_feature_dim": 15,
         "history": history,
     }, args.output)
     
